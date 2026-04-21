@@ -1,0 +1,131 @@
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: f1_postgres
+    environment:
+      POSTGRES_USER: f1admin
+      POSTGRES_PASSWORD: f1bigdata2024
+      POSTGRES_DB: f1_metadata
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U f1admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  spark-master:
+    image: apache/spark:3.5.1
+    container_name: f1_spark_master
+    command: bash -c "/opt/spark/sbin/start-master.sh && tail -f /opt/spark/logs/*"
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    volumes:
+      - ./data:/opt/spark-data
+      - ./spark_jobs:/opt/spark-jobs
+    environment:
+      - SPARK_MASTER_HOST=spark-master
+
+  spark-worker-1:
+    image: apache/spark:3.5.1
+    container_name: f1_spark_worker_1
+    command: bash -c "sleep 5 && /opt/spark/sbin/start-worker.sh spark://spark-master:7077 && tail -f /opt/spark/logs/*"
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+    volumes:
+      - ./data:/opt/spark-data
+      - ./spark_jobs:/opt/spark-jobs
+
+  spark-worker-2:
+    image: apache/spark:3.5.1
+    container_name: f1_spark_worker_2
+    command: bash -c "sleep 5 && /opt/spark/sbin/start-worker.sh spark://spark-master:7077 && tail -f /opt/spark/logs/*"
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+    volumes:
+      - ./data:/opt/spark-data
+      - ./spark_jobs:/opt/spark-jobs
+
+  jupyter:
+    image: jupyter/pyspark-notebook:latest
+    container_name: f1_jupyter
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./data:/home/jovyan/data
+      - ./spark_jobs:/home/jovyan/spark_jobs
+    depends_on:
+      - spark-master
+
+  airflow-webserver:
+    image: apache/airflow:2.8.1-python3.11
+    container_name: f1_airflow_web
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://f1admin:f1bigdata2024@postgres:5432/f1_metadata
+      - AIRFLOW__CORE__FERNET_KEY=ZmVybmV0LWtleS1mb3ItZjEtYmlnZGF0YS1wcm9qZWN0LQ==
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__WEBSERVER__SECRET_KEY=f1-secret-key-2024
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./ingestion:/opt/airflow/ingestion
+      - ./config:/opt/airflow/config
+      - ./ml:/opt/airflow/ml
+      - ./models:/opt/airflow/models
+      - ./agents:/opt/airflow/agents
+      - ./enhanced_pipeline.py:/opt/airflow/enhanced_pipeline.py
+      - ./logs:/opt/airflow/logs
+      - /var/run/docker.sock:/var/run/docker.sock    
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      bash -c "
+        airflow db migrate &&
+        airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@f1.com || true &&
+        airflow webserver
+      "
+
+  airflow-scheduler:
+    image: apache/airflow:2.8.1-python3.11
+    container_name: f1_airflow_scheduler
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://f1admin:f1bigdata2024@postgres:5432/f1_metadata
+      - AIRFLOW__CORE__FERNET_KEY=ZmVybmV0LWtleS1mb3ItZjEtYmlnZGF0YS1wcm9qZWN0LQ==
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./ingestion:/opt/airflow/ingestion
+      - ./config:/opt/airflow/config
+      - ./ml:/opt/airflow/ml
+      - ./models:/opt/airflow/models
+      - ./agents:/opt/airflow/agents
+      - ./enhanced_pipeline.py:/opt/airflow/enhanced_pipeline.py
+      - ./logs:/opt/airflow/logs
+      - /var/run/docker.sock:/var/run/docker.sock     
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: airflow scheduler
+
+volumes:
+  postgres_data:

@@ -1,0 +1,27 @@
+{
+  "performance": {
+    "position_predictor": {
+      "mae_2025": 2.87,
+      "test_rows": 479
+    },
+    "podium_classifier": {
+      "f1_2025": 0.739,
+      "test_rows": 479
+    },
+    "worst_circuits_2025": {
+      "Circuit Park Zandvoort": 4.3,
+      "Las Vegas Strip Street Circuit": 3.9,
+      "Silverstone Circuit": 3.8
+    },
+    "hardest_to_predict_2025": {
+      "Andrea Kimi Antonelli": 4.0,
+      "Charles Leclerc": 3.5,
+      "Lance Stroll": 3.3
+    },
+    "status": "EVALUATED"
+  },
+  "recommendations": [
+    "Model struggles most at Circuit Park Zandvoort (avg error: 4.3 positions). Consider adding circuit-specific features like elevation, corners count."
+  ],
+  "retrain_triggered": false
+}

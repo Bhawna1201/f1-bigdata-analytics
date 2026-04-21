@@ -1,0 +1,81 @@
+[2026-04-14T17:17:55.368+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.agentic_ai_briefing manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:17:55.372+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.agentic_ai_briefing manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:17:55.372+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-04-14T17:17:55.378+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): agentic_ai_briefing> on 2026-04-14 17:05:58.784394+00:00
+[2026-04-14T17:17:55.380+0000] {standard_task_runner.py:60} INFO - Started process 1216 to run task
+[2026-04-14T17:17:55.383+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'agentic_ai_briefing', 'manual__2026-04-14T17:05:58.784394+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmp_a3b31g8']
+[2026-04-14T17:17:55.384+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask agentic_ai_briefing
+[2026-04-14T17:17:55.409+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.agentic_ai_briefing manual__2026-04-14T17:05:58.784394+00:00 [running]> on host 31aa163543c6
+[2026-04-14T17:17:55.448+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='agentic_ai_briefing' AIRFLOW_CTX_EXECUTION_DATE='2026-04-14T17:05:58.784394+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-14T17:05:58.784394+00:00'
+[2026-04-14T17:17:55.449+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-14T17:17:55.450+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\nfrom agents.agentic_pipeline import build_agent_graph, AgentState\nfrom datetime import datetime\n\npipeline = build_agent_graph()\nstate = {\n    \'data_health\': {}, \'ingestion_status\': \'\', \'data_issues\': [],\n    \'new_features_proposed\': [], \'new_features_accepted\': [],\n    \'feature_test_results\': {}, \'model_performance\': {},\n    \'model_recommendations\': [], \'retrain_triggered\': False,\n    \'race_briefing\': \'\', \'predictions\': {},\n    \'phase\': \'airflow_scheduled\', \'errors\': [],\n    \'timestamp\': datetime.now().isoformat(),\n}\nfinal = pipeline.invoke(state)\nprint(f\'Agentic AI complete\')\nprint(final.get(\'race_briefing\', \'No briefing\'))\n"\n    ']
+[2026-04-14T17:17:55.455+0000] {subprocess.py:86} INFO - Output:
+[2026-04-14T17:17:56.490+0000] {subprocess.py:93} INFO -   ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+[2026-04-14T17:17:56.690+0000] {subprocess.py:93} INFO -   Model Agent error: feature_names mismatch: ['season', 'round', 'grid', 'best_quali_seconds', 'q1_seconds', 'q2_seconds', 'q3_seconds', 'num_pit_stops', 'rolling_avg_position_5', 'rolling_avg_points_5', 'rolling_dnf_rate_5', 'rolling_positions_gained_5', 'constructor_rolling_points', 'rolling_consistency', 'quali_gap_to_pole', 'quali_gap_pct', 'pit_strategy_aggressive', 'pit_stops_vs_field', 'circuit_avg_position', 'circuit_races_count', 'season_cumulative_points', 'avg_track_temp', 'max_track_temp', 'min_track_temp', 'avg_air_temp', 'max_humidity', 'avg_humidity', 'is_hot_race', 'is_cold_race', 'temp_variation', 'had_rain', 'driver_elo', 'elo_vs_field', 'win_streak', 'podium_streak', 'points_streak', 'ewm_position_5', 'ewm_points_5', 'driver_circuit_wins', 'driver_circuit_podiums', 'constructor_rain_interaction', 'constructor_temp_interaction', 'grid_elo_interaction', 'circuit_dnf_rate', 'circuit_chaos_index', 'quali_vs_teammate', 'season_progress', 'is_season_start', 'is_season_end', 'points_gap_to_leader', 'championship_position', 'prev_season_position', 'prev_season_points', 'prev_season_wins', 'is_prev_champion', 'is_prev_top3', 'is_prev_top5', 'avg_tire_deg_slope', 'max_tire_deg_slope', 'min_tire_deg_slope', 'stint_count_tire', 'driver_avg_deg_5', 'avg_lap_time', 'lap_consistency', 'best_lap_time', 'laps_completed_actual', 'max_tyre_life', 'pace_vs_field', 'best_lap_pct', 'num_stints', 'driver_consistency_5', 'driver_id_enc', 'driver_code_enc', 'driver_name_enc', 'constructor_id_enc', 'constructor_name_enc', 'circuit_id_enc', 'circuit_name_enc', 'race_name_enc'] ['season', 'round', 'grid', 'best_quali_seconds', 'q1_seconds', 'q2_seconds', 'q3_seconds', 'num_pit_stops', 'rolling_avg_position_5', 'rolling_avg_points_5', 'rolling_dnf_rate_5', 'rolling_positions_gained_5', 'constructor_rolling_points', 'rolling_consistency', 'quali_gap_to_pole', 'quali_gap_pct', 'pit_strategy_aggressive', 'pit_stops_vs_field', 'circuit_avg_position', 'circuit_races_count', 'season_cumulative_points', 'driver_id_enc', 'driver_code_enc', 'driver_name_enc', 'constructor_id_enc', 'constructor_name_enc', 'circuit_id_enc', 'circuit_name_enc', 'race_name_enc']
+[2026-04-14T17:17:56.691+0000] {subprocess.py:93} INFO - expected prev_season_points, lap_consistency, season_progress, circuit_dnf_rate, min_track_temp, ewm_points_5, best_lap_time, had_rain, avg_track_temp, driver_circuit_wins, stint_count_tire, grid_elo_interaction, max_track_temp, points_gap_to_leader, circuit_chaos_index, max_tyre_life, min_tire_deg_slope, podium_streak, best_lap_pct, avg_air_temp, pace_vs_field, is_prev_top3, constructor_rain_interaction, elo_vs_field, quali_vs_teammate, constructor_temp_interaction, prev_season_position, avg_humidity, driver_avg_deg_5, avg_lap_time, is_prev_top5, prev_season_wins, max_humidity, points_streak, championship_position, is_hot_race, driver_elo, num_stints, avg_tire_deg_slope, win_streak, driver_consistency_5, laps_completed_actual, driver_circuit_podiums, is_cold_race, temp_variation, ewm_position_5, max_tire_deg_slope, is_prev_champion, is_season_start, is_season_end in input data
+[2026-04-14T17:17:56.698+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.699+0000] {subprocess.py:93} INFO - F1 STRATEGY BRIEFING — Japanese Grand Prix (2026 Round 3)
+[2026-04-14T17:17:56.699+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-14T17:17:56.699+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.699+0000] {subprocess.py:93} INFO - [DATA STATUS] ISSUES_FOUND
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO -   Total records: 3524
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO -   Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO -   ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO - [NEW FEATURES DISCOVERED]
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO -   + constructor_dominance: correlation with target = 0.5936
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO -   + home_advantage: correlation with target = 0.1665
+[2026-04-14T17:17:56.700+0000] {subprocess.py:93} INFO -   + grid_volatility: correlation with target = 0.0644
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO - [MODEL PERFORMANCE]
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO - [LATEST RACE RESULTS — Japanese Grand Prix]
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO -   P 1 | Grid  1 | Andrea Kimi Antonelli
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO -   P 2 | Grid  3 | Oscar Piastri
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO -   P 3 | Grid  4 | Charles Leclerc
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO -   P 4 | Grid  2 | George Russell
+[2026-04-14T17:17:56.701+0000] {subprocess.py:93} INFO -   P 5 | Grid  5 | Lando Norris
+[2026-04-14T17:17:56.702+0000] {subprocess.py:93} INFO -   P 6 | Grid  6 | Lewis Hamilton
+[2026-04-14T17:17:56.702+0000] {subprocess.py:93} INFO -   P 7 | Grid  7 | Pierre Gasly
+[2026-04-14T17:17:56.702+0000] {subprocess.py:93} INFO -   P 8 | Grid 11 | Max Verstappen
+[2026-04-14T17:17:56.703+0000] {subprocess.py:93} INFO -   P 9 | Grid 14 | Liam Lawson
+[2026-04-14T17:17:56.703+0000] {subprocess.py:93} INFO -   P10 | Grid 12 | Esteban Ocon
+[2026-04-14T17:17:56.703+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.703+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-14T17:17:56.703+0000] {subprocess.py:93} INFO - Generated: 2026-04-14T17:17:56.697972
+[2026-04-14T17:17:56.703+0000] {subprocess.py:93} INFO - Retrain triggered: False
+[2026-04-14T17:17:56.704+0000] {subprocess.py:93} INFO - Agentic AI complete
+[2026-04-14T17:17:56.704+0000] {subprocess.py:93} INFO - F1 STRATEGY BRIEFING — Japanese Grand Prix (2026 Round 3)
+[2026-04-14T17:17:56.704+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-14T17:17:56.704+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.704+0000] {subprocess.py:93} INFO - [DATA STATUS] ISSUES_FOUND
+[2026-04-14T17:17:56.705+0000] {subprocess.py:93} INFO -   Total records: 3524
+[2026-04-14T17:17:56.705+0000] {subprocess.py:93} INFO -   Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+[2026-04-14T17:17:56.705+0000] {subprocess.py:93} INFO -   ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+[2026-04-14T17:17:56.705+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.705+0000] {subprocess.py:93} INFO - [NEW FEATURES DISCOVERED]
+[2026-04-14T17:17:56.705+0000] {subprocess.py:93} INFO -   + constructor_dominance: correlation with target = 0.5936
+[2026-04-14T17:17:56.706+0000] {subprocess.py:93} INFO -   + home_advantage: correlation with target = 0.1665
+[2026-04-14T17:17:56.706+0000] {subprocess.py:93} INFO -   + grid_volatility: correlation with target = 0.0644
+[2026-04-14T17:17:56.706+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.706+0000] {subprocess.py:93} INFO - [MODEL PERFORMANCE]
+[2026-04-14T17:17:56.706+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.706+0000] {subprocess.py:93} INFO - [LATEST RACE RESULTS — Japanese Grand Prix]
+[2026-04-14T17:17:56.707+0000] {subprocess.py:93} INFO -   P 1 | Grid  1 | Andrea Kimi Antonelli
+[2026-04-14T17:17:56.707+0000] {subprocess.py:93} INFO -   P 2 | Grid  3 | Oscar Piastri
+[2026-04-14T17:17:56.707+0000] {subprocess.py:93} INFO -   P 3 | Grid  4 | Charles Leclerc
+[2026-04-14T17:17:56.707+0000] {subprocess.py:93} INFO -   P 4 | Grid  2 | George Russell
+[2026-04-14T17:17:56.707+0000] {subprocess.py:93} INFO -   P 5 | Grid  5 | Lando Norris
+[2026-04-14T17:17:56.707+0000] {subprocess.py:93} INFO -   P 6 | Grid  6 | Lewis Hamilton
+[2026-04-14T17:17:56.708+0000] {subprocess.py:93} INFO -   P 7 | Grid  7 | Pierre Gasly
+[2026-04-14T17:17:56.708+0000] {subprocess.py:93} INFO -   P 8 | Grid 11 | Max Verstappen
+[2026-04-14T17:17:56.708+0000] {subprocess.py:93} INFO -   P 9 | Grid 14 | Liam Lawson
+[2026-04-14T17:17:56.708+0000] {subprocess.py:93} INFO -   P10 | Grid 12 | Esteban Ocon
+[2026-04-14T17:17:56.708+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:17:56.708+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-14T17:17:56.709+0000] {subprocess.py:93} INFO - Generated: 2026-04-14T17:17:56.697972
+[2026-04-14T17:17:56.709+0000] {subprocess.py:93} INFO - Retrain triggered: False
+[2026-04-14T17:17:56.902+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-04-14T17:17:56.922+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=f1_bigdata_pipeline, task_id=agentic_ai_briefing, execution_date=20260414T170558, start_date=20260414T171755, end_date=20260414T171756
+[2026-04-14T17:17:56.945+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-14T17:17:56.959+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

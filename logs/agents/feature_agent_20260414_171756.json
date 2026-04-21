@@ -1,0 +1,56 @@
+{
+  "proposed": [
+    {
+      "name": "constructor_dominance",
+      "description": "Ratio of constructor points to field average",
+      "hypothesis": "Dominant constructors (ratio > 1.5) should predict podiums"
+    },
+    {
+      "name": "quali_trend",
+      "description": "Slope of qualifying gap over last 5 races (negative = improving)",
+      "hypothesis": "Drivers with improving qualifying trend should finish higher"
+    },
+    {
+      "name": "home_advantage",
+      "description": "Difference between overall form and circuit-specific form",
+      "hypothesis": "Positive value = driver performs better at this circuit than average"
+    },
+    {
+      "name": "grid_volatility",
+      "description": "Std dev of grid position over last 5 races",
+      "hypothesis": "More consistent qualifiers should finish higher"
+    },
+    {
+      "name": "points_acceleration",
+      "description": "Second derivative of cumulative points \u2014 acceleration of form",
+      "hypothesis": "Drivers gaining momentum faster should be more competitive"
+    }
+  ],
+  "accepted": [
+    "constructor_dominance",
+    "home_advantage",
+    "grid_volatility"
+  ],
+  "test_results": {
+    "constructor_dominance": {
+      "correlation": 0.5936,
+      "accepted": "True"
+    },
+    "quali_trend": {
+      "correlation": 0.0442,
+      "accepted": "False"
+    },
+    "home_advantage": {
+      "correlation": 0.1665,
+      "accepted": "True"
+    },
+    "grid_volatility": {
+      "correlation": 0.0644,
+      "accepted": "True"
+    },
+    "points_acceleration": {
+      "correlation": 0.0191,
+      "accepted": "False"
+    }
+  }
+}

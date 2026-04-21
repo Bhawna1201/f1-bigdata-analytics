@@ -1,0 +1,63 @@
+[2026-04-14T17:06:28.508+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.retrain_models manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:06:28.512+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.retrain_models manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:06:28.512+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-04-14T17:06:28.518+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): retrain_models> on 2026-04-14 17:05:58.784394+00:00
+[2026-04-14T17:06:28.520+0000] {standard_task_runner.py:60} INFO - Started process 485 to run task
+[2026-04-14T17:06:28.523+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'retrain_models', 'manual__2026-04-14T17:05:58.784394+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmpl_7re2mf']
+[2026-04-14T17:06:28.524+0000] {standard_task_runner.py:88} INFO - Job 18: Subtask retrain_models
+[2026-04-14T17:06:28.566+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.retrain_models manual__2026-04-14T17:05:58.784394+00:00 [running]> on host 31aa163543c6
+[2026-04-14T17:06:28.618+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='retrain_models' AIRFLOW_CTX_EXECUTION_DATE='2026-04-14T17:05:58.784394+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-14T17:05:58.784394+00:00'
+[2026-04-14T17:06:28.619+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-14T17:06:28.620+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\n\nfrom enhanced_pipeline import build_weather_features, merge_weather_into_gold\nbuild_weather_features()\nmerge_weather_into_gold()\n\nfrom ml.integrate_idle_data import merge_all_into_gold\nmerge_all_into_gold()\n\nfrom ml.model_comparison import main as compare_main\ncompare_main()\nprint(\'Models retrained\')\n"\n    ']
+[2026-04-14T17:06:28.625+0000] {subprocess.py:86} INFO - Output:
+[2026-04-14T17:06:29.651+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-04-14T17:06:29.653+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1770, in apply
+[2026-04-14T17:06:29.653+0000] {subprocess.py:93} INFO -     result = self._python_apply_general(f, self._selected_obj)
+[2026-04-14T17:06:29.653+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.654+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1819, in _python_apply_general
+[2026-04-14T17:06:29.654+0000] {subprocess.py:93} INFO -     values, mutated = self.grouper.apply_groupwise(f, data, self.axis)
+[2026-04-14T17:06:29.654+0000] {subprocess.py:93} INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.654+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/ops.py", line 911, in apply_groupwise
+[2026-04-14T17:06:29.654+0000] {subprocess.py:93} INFO -     res = f(group)
+[2026-04-14T17:06:29.654+0000] {subprocess.py:93} INFO -           ^^^^^^^^
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1758, in f
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO -     return func(g, *args, **kwargs)
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO - TypeError: integrate_lap_features.<locals>.<lambda>() got an unexpected keyword argument 'include_groups'
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-04-14T17:06:29.655+0000] {subprocess.py:93} INFO - 
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -   File "<string>", line 10, in <module>
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -   File "/opt/airflow/ml/integrate_idle_data.py", line 291, in merge_all_into_gold
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -     lap_feats = integrate_lap_features()
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -   File "/opt/airflow/ml/integrate_idle_data.py", line 225, in integrate_lap_features
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -     stint_counts = clean_laps.groupby(["season", "round", driver_col]).apply(
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.656+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1780, in apply
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -     return self._python_apply_general(f, self._obj_with_exclusions)
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1819, in _python_apply_general
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -     values, mutated = self.grouper.apply_groupwise(f, data, self.axis)
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/ops.py", line 911, in apply_groupwise
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -     res = f(group)
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -           ^^^^^^^^
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1758, in f
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -     return func(g, *args, **kwargs)
+[2026-04-14T17:06:29.657+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-14T17:06:29.658+0000] {subprocess.py:93} INFO - TypeError: integrate_lap_features.<locals>.<lambda>() got an unexpected keyword argument 'include_groups'
+[2026-04-14T17:06:29.716+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-04-14T17:06:29.739+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-04-14T17:06:29.744+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=f1_bigdata_pipeline, task_id=retrain_models, execution_date=20260414T170558, start_date=20260414T170628, end_date=20260414T170629
+[2026-04-14T17:06:29.753+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 18 for task retrain_models (Bash command failed. The command returned a non-zero exit code 1.; 485)
+[2026-04-14T17:06:29.797+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-04-14T17:06:29.818+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

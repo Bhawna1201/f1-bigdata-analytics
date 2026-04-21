@@ -1,0 +1,96 @@
+[2026-04-20T06:32:08.975+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest scheduled__2026-04-13T06:00:00+00:00 [queued]>
+[2026-04-20T06:32:08.978+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest scheduled__2026-04-13T06:00:00+00:00 [queued]>
+[2026-04-20T06:32:08.978+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 3
+[2026-04-20T06:32:08.982+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): ingest_bronze_latest> on 2026-04-13 06:00:00+00:00
+[2026-04-20T06:32:08.984+0000] {standard_task_runner.py:60} INFO - Started process 10556 to run task
+[2026-04-20T06:32:08.986+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'ingest_bronze_latest', 'scheduled__2026-04-13T06:00:00+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmpbv7p2e9r']
+[2026-04-20T06:32:08.987+0000] {standard_task_runner.py:88} INFO - Job 39: Subtask ingest_bronze_latest
+[2026-04-20T06:32:09.010+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest scheduled__2026-04-13T06:00:00+00:00 [running]> on host 6879df3dac39
+[2026-04-20T06:32:09.037+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.11/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-04-20T06:32:09.055+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='ingest_bronze_latest' AIRFLOW_CTX_EXECUTION_DATE='2026-04-13T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-04-13T06:00:00+00:00'
+[2026-04-20T06:32:09.056+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-20T06:32:09.056+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\nfrom ingestion.bronze_ingestion import ErgastIngestion, FastF1Ingestion\nimport fastf1, time\n\nseason = 2026\nergast = ErgastIngestion()\nergast.ingest_race_results(season)\ntime.sleep(2)\nergast.ingest_qualifying(season)\ntime.sleep(2)\nergast.ingest_pit_stops(season)\ntime.sleep(2)\nergast.ingest_driver_standings(season)\n\nff1 = FastF1Ingestion()\nschedule = fastf1.get_event_schedule(season)\nlatest_round = schedule[schedule[\'EventDate\'] < \'2026-04-13\'][\'RoundNumber\'].max()\nif latest_round > 0:\n    ff1.ingest_session_laps(season, int(latest_round), \'R\')\n    ff1.ingest_weather(season, int(latest_round), \'R\')\nprint(f\'Ingested up to {season} R{latest_round}\')\n"\n    ']
+[2026-04-20T06:32:09.061+0000] {subprocess.py:86} INFO - Output:
+[2026-04-20T06:32:09.453+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connection.py", line 203, in _new_conn
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -     sock = connection.create_connection(
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.11/socket.py", line 962, in getaddrinfo
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.454+0000] {subprocess.py:93} INFO - socket.gaierror: [Errno -2] Name or service not known
+[2026-04-20T06:32:09.455+0000] {subprocess.py:93} INFO - 
+[2026-04-20T06:32:09.455+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-04-20T06:32:09.455+0000] {subprocess.py:93} INFO - 
+[2026-04-20T06:32:09.455+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-04-20T06:32:09.455+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+[2026-04-20T06:32:09.456+0000] {subprocess.py:93} INFO -     response = self._make_request(
+[2026-04-20T06:32:09.461+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.461+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 492, in _make_request
+[2026-04-20T06:32:09.464+0000] {subprocess.py:93} INFO -     raise new_e
+[2026-04-20T06:32:09.466+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+[2026-04-20T06:32:09.469+0000] {subprocess.py:93} INFO -     self._validate_conn(conn)
+[2026-04-20T06:32:09.469+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1097, in _validate_conn
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO -     conn.connect()
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connection.py", line 611, in connect
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO -     self.sock = sock = self._new_conn()
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO -                        ^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connection.py", line 210, in _new_conn
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO -     raise NameResolutionError(self.host, self, e) from e
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO - urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0xffff8a9d76d0>: Failed to resolve 'api.jolpi.ca' ([Errno -2] Name or service not known)
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO - 
+[2026-04-20T06:32:09.470+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO - 
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -     resp = conn.urlopen(
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -     retries = retries.increment(
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+[2026-04-20T06:32:09.471+0000] {subprocess.py:93} INFO -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO - urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.jolpi.ca', port=443): Max retries exceeded with url: /ergast/f1/2026/results.json?limit=100&offset=0 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff8a9d76d0>: Failed to resolve 'api.jolpi.ca' ([Errno -2] Name or service not known)"))
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO - 
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO - 
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO -   File "<string>", line 9, in <module>
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO -   File "/opt/airflow/ingestion/bronze_ingestion.py", line 80, in ingest_race_results
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO -     data = self._fetch(f"{season}/results")
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.472+0000] {subprocess.py:93} INFO -   File "/opt/airflow/ingestion/bronze_ingestion.py", line 46, in _fetch
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -     resp = requests.get(url, timeout=30)
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/requests/api.py", line 73, in get
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -     return request("get", url, params=params, **kwargs)
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/requests/api.py", line 59, in request
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -     return session.request(method=method, url=url, **kwargs)
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -     resp = self.send(prep, **send_kwargs)
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.473+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+[2026-04-20T06:32:09.474+0000] {subprocess.py:93} INFO -     r = adapter.send(request, **kwargs)
+[2026-04-20T06:32:09.474+0000] {subprocess.py:93} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-04-20T06:32:09.474+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.11/site-packages/requests/adapters.py", line 519, in send
+[2026-04-20T06:32:09.474+0000] {subprocess.py:93} INFO -     raise ConnectionError(e, request=request)
+[2026-04-20T06:32:09.474+0000] {subprocess.py:93} INFO - requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.jolpi.ca', port=443): Max retries exceeded with url: /ergast/f1/2026/results.json?limit=100&offset=0 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff8a9d76d0>: Failed to resolve 'api.jolpi.ca' ([Errno -2] Name or service not known)"))
+[2026-04-20T06:32:09.514+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-04-20T06:32:09.520+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-04-20T06:32:09.521+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=f1_bigdata_pipeline, task_id=ingest_bronze_latest, execution_date=20260413T060000, start_date=20260420T063208, end_date=20260420T063209
+[2026-04-20T06:32:09.526+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 39 for task ingest_bronze_latest (Bash command failed. The command returned a non-zero exit code 1.; 10556)
+[2026-04-20T06:32:09.553+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-04-20T06:32:09.564+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

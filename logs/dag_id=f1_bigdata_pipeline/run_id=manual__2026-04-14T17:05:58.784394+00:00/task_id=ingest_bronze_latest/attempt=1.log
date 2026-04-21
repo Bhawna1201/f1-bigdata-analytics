@@ -1,0 +1,42 @@
+[2026-04-14T17:05:59.451+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:05:59.455+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:05:59.456+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-04-14T17:05:59.462+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): ingest_bronze_latest> on 2026-04-14 17:05:58.784394+00:00
+[2026-04-14T17:05:59.465+0000] {standard_task_runner.py:60} INFO - Started process 382 to run task
+[2026-04-14T17:05:59.467+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'ingest_bronze_latest', 'manual__2026-04-14T17:05:58.784394+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmprppkcm27']
+[2026-04-14T17:05:59.469+0000] {standard_task_runner.py:88} INFO - Job 15: Subtask ingest_bronze_latest
+[2026-04-14T17:05:59.546+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest manual__2026-04-14T17:05:58.784394+00:00 [running]> on host 31aa163543c6
+[2026-04-14T17:05:59.577+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.11/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-04-14T17:05:59.594+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='ingest_bronze_latest' AIRFLOW_CTX_EXECUTION_DATE='2026-04-14T17:05:58.784394+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-14T17:05:58.784394+00:00'
+[2026-04-14T17:05:59.595+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-14T17:05:59.596+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\nfrom ingestion.bronze_ingestion import ErgastIngestion, FastF1Ingestion\nimport fastf1, time\n\nseason = 2026\nergast = ErgastIngestion()\nergast.ingest_race_results(season)\ntime.sleep(2)\nergast.ingest_qualifying(season)\ntime.sleep(2)\nergast.ingest_pit_stops(season)\ntime.sleep(2)\nergast.ingest_driver_standings(season)\n\nff1 = FastF1Ingestion()\nschedule = fastf1.get_event_schedule(season)\nlatest_round = schedule[schedule[\'EventDate\'] < \'2026-04-14\'][\'RoundNumber\'].max()\nif latest_round > 0:\n    ff1.ingest_session_laps(season, int(latest_round), \'R\')\n    ff1.ingest_weather(season, int(latest_round), \'R\')\nprint(f\'Ingested up to {season} R{latest_round}\')\n"\n    ']
+[2026-04-14T17:05:59.601+0000] {subprocess.py:86} INFO - Output:
+[2026-04-14T17:06:21.130+0000] {subprocess.py:93} INFO - core           INFO 	Loading data for Japanese Grand Prix - Race [v3.8.2]
+[2026-04-14T17:06:21.133+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for session_info
+[2026-04-14T17:06:21.133+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for driver_info
+[2026-04-14T17:06:21.604+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for session_status_data
+[2026-04-14T17:06:21.605+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for lap_count
+[2026-04-14T17:06:21.606+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for track_status_data
+[2026-04-14T17:06:21.615+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for _extended_timing_data
+[2026-04-14T17:06:21.618+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for timing_app_data
+[2026-04-14T17:06:21.625+0000] {subprocess.py:93} INFO - core           INFO 	Processing timing data...
+[2026-04-14T17:06:22.215+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for weather_data
+[2026-04-14T17:06:22.216+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for race_control_messages
+[2026-04-14T17:06:22.223+0000] {subprocess.py:93} INFO - core           INFO 	Finished loading data for 22 drivers: ['12', '81', '16', '63', '1', '44', '10', '3', '30', '31', '27', '6', '5', '41', '55', '43', '11', '14', '77', '23', '18', '87']
+[2026-04-14T17:06:22.247+0000] {subprocess.py:93} INFO - core           INFO 	Loading data for Japanese Grand Prix - Race [v3.8.2]
+[2026-04-14T17:06:22.248+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for session_info
+[2026-04-14T17:06:22.249+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for driver_info
+[2026-04-14T17:06:22.257+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for session_status_data
+[2026-04-14T17:06:22.257+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for lap_count
+[2026-04-14T17:06:22.258+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for track_status_data
+[2026-04-14T17:06:22.261+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for _extended_timing_data
+[2026-04-14T17:06:22.265+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for timing_app_data
+[2026-04-14T17:06:22.267+0000] {subprocess.py:93} INFO - core           INFO 	Processing timing data...
+[2026-04-14T17:06:22.653+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for weather_data
+[2026-04-14T17:06:22.656+0000] {subprocess.py:93} INFO - req            INFO 	Using cached data for race_control_messages
+[2026-04-14T17:06:22.658+0000] {subprocess.py:93} INFO - core           INFO 	Finished loading data for 22 drivers: ['12', '81', '16', '63', '1', '44', '10', '3', '30', '31', '27', '6', '5', '41', '55', '43', '11', '14', '77', '23', '18', '87']
+[2026-04-14T17:06:22.665+0000] {subprocess.py:93} INFO - Ingested up to 2026 R3
+[2026-04-14T17:06:22.769+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-04-14T17:06:22.802+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=f1_bigdata_pipeline, task_id=ingest_bronze_latest, execution_date=20260414T170558, start_date=20260414T170559, end_date=20260414T170622
+[2026-04-14T17:06:22.869+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-14T17:06:22.898+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

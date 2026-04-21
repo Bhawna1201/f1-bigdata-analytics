@@ -1,0 +1,147 @@
+{
+  "position_predictor": {
+    "mae": 2.085,
+    "rmse": 2.969,
+    "r2": 0.742,
+    "cv_mae": 2.161,
+    "cv_std": 0.234,
+    "top_features": [
+      {
+        "feature": "pace_vs_field",
+        "importance": 0.24160537123680115
+      },
+      {
+        "feature": "grid_elo_interaction",
+        "importance": 0.08003316819667816
+      },
+      {
+        "feature": "constructor_rolling_points",
+        "importance": 0.040360212326049805
+      },
+      {
+        "feature": "laps_completed_actual",
+        "importance": 0.03999956324696541
+      },
+      {
+        "feature": "pit_stops_vs_field",
+        "importance": 0.03935530036687851
+      },
+      {
+        "feature": "num_pit_stops",
+        "importance": 0.03658483177423477
+      },
+      {
+        "feature": "season_cumulative_points",
+        "importance": 0.033295489847660065
+      },
+      {
+        "feature": "grid",
+        "importance": 0.014621852897107601
+      },
+      {
+        "feature": "quali_gap_pct",
+        "importance": 0.014471732079982758
+      },
+      {
+        "feature": "is_prev_top5",
+        "importance": 0.01411186158657074
+      }
+    ]
+  },
+  "podium_classifier": {
+    "accuracy": 0.932,
+    "precision": 0.762,
+    "recall": 0.79,
+    "f1": 0.776,
+    "top_features": [
+      {
+        "feature": "pace_vs_field",
+        "importance": 0.4111532781456765
+      },
+      {
+        "feature": "grid_elo_interaction",
+        "importance": 0.17018785240316744
+      },
+      {
+        "feature": "quali_gap_pct",
+        "importance": 0.03492154896357083
+      },
+      {
+        "feature": "pit_stops_vs_field",
+        "importance": 0.029228817856003814
+      },
+      {
+        "feature": "grid",
+        "importance": 0.023892602031418717
+      },
+      {
+        "feature": "constructor_rolling_points",
+        "importance": 0.021241559508657262
+      },
+      {
+        "feature": "best_lap_pct",
+        "importance": 0.01997804638965987
+      },
+      {
+        "feature": "season_cumulative_points",
+        "importance": 0.017875450995769617
+      },
+      {
+        "feature": "laps_completed_actual",
+        "importance": 0.017127271112527622
+      },
+      {
+        "feature": "constructor_temp_interaction",
+        "importance": 0.017001784557814162
+      }
+    ]
+  },
+  "winner_predictor": {
+    "winner_accuracy": 0.778,
+    "top3_accuracy": 0.963,
+    "correct": 21,
+    "total": 27,
+    "top_features": [
+      {
+        "feature": "constructor_rolling_points",
+        "importance": 0.2550774018255449
+      },
+      {
+        "feature": "pace_vs_field",
+        "importance": 0.10836689418413281
+      },
+      {
+        "feature": "grid_elo_interaction",
+        "importance": 0.07862073044152042
+      },
+      {
+        "feature": "quali_gap_to_pole",
+        "importance": 0.06881216940447403
+      },
+      {
+        "feature": "prev_season_points",
+        "importance": 0.05460388237396508
+      },
+      {
+        "feature": "best_lap_pct",
+        "importance": 0.03235055265950797
+      },
+      {
+        "feature": "lap_consistency",
+        "importance": 0.02772469253215433
+      },
+      {
+        "feature": "quali_vs_teammate",
+        "importance": 0.023463737939448816
+      },
+      {
+        "feature": "pit_stops_vs_field",
+        "importance": 0.022780260977528072
+      },
+      {
+        "feature": "ewm_position_5",
+        "importance": 0.01991012740009837
+      }
+    ]
+  }
+}

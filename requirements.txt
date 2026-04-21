@@ -1,0 +1,15 @@
+fastf1>=3.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=14.0.0
+requests>=2.31.0
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+
+#pip3 install langgraph langchain-core
+#pip3 install streamlit plotly
+#pip3 install xgboost lightgbm
+
+# docker exec f1_airflow_web python -m pip install fastf1 scikit-learn xgboost joblib langgraph langchain-core requests
+# docker exec f1_airflow_scheduler python -m pip install fastf1 scikit-learn xgboost joblib langgraph langchain-core requests

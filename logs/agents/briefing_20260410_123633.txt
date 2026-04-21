@@ -1,0 +1,37 @@
+F1 STRATEGY BRIEFING — Abu Dhabi Grand Prix (2025 Round 24)
+============================================================
+
+[DATA STATUS] ISSUES_FOUND
+  Total records: 3458
+  Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+  ⚠ HIGH NULL RATE: {'q3_seconds': 51.5}
+
+[NEW FEATURES DISCOVERED]
+  + constructor_dominance: correlation with target = 0.5947
+  + home_advantage: correlation with target = 0.1629
+  + grid_volatility: correlation with target = 0.0659
+
+[MODEL PERFORMANCE]
+  Position predictor MAE: 2.87
+  Podium classifier F1: 0.739
+  Hardest circuits: {'Circuit Park Zandvoort': 4.3, 'Las Vegas Strip Street Circuit': 3.9, 'Silverstone Circuit': 3.8}
+  Hardest to predict: {'Andrea Kimi Antonelli': 4.0, 'Charles Leclerc': 3.5, 'Lance Stroll': 3.3}
+
+[RECOMMENDATIONS]
+  1. Model struggles most at Circuit Park Zandvoort (avg error: 4.3 positions). Consider adding circuit-specific features like elevation, corners count.
+
+[LATEST RACE RESULTS — Abu Dhabi Grand Prix]
+  P 1 | Grid  1 | Max Verstappen
+  P 2 | Grid  3 | Oscar Piastri
+  P 3 | Grid  2 | Lando Norris
+  P 4 | Grid  5 | Charles Leclerc
+  P 5 | Grid  4 | George Russell
+  P 6 | Grid  6 | Fernando Alonso
+  P 7 | Grid  8 | Esteban Ocon
+  P 8 | Grid 16 | Lewis Hamilton
+  P 9 | Grid 18 | Nico Hülkenberg
+  P10 | Grid 15 | Lance Stroll
+
+============================================================
+Generated: 2026-04-10T12:36:33.448705
+Retrain triggered: False

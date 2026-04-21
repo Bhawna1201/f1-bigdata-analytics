@@ -1,0 +1,17 @@
+[2026-04-14T17:06:25.838+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.gold_features manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:06:25.842+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.gold_features manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:06:25.842+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-04-14T17:06:25.847+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): gold_features> on 2026-04-14 17:05:58.784394+00:00
+[2026-04-14T17:06:25.850+0000] {standard_task_runner.py:60} INFO - Started process 451 to run task
+[2026-04-14T17:06:25.851+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'gold_features', 'manual__2026-04-14T17:05:58.784394+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmphhei9kzc']
+[2026-04-14T17:06:25.852+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask gold_features
+[2026-04-14T17:06:25.873+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.gold_features manual__2026-04-14T17:05:58.784394+00:00 [running]> on host 31aa163543c6
+[2026-04-14T17:06:25.909+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='gold_features' AIRFLOW_CTX_EXECUTION_DATE='2026-04-14T17:05:58.784394+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-14T17:05:58.784394+00:00'
+[2026-04-14T17:06:25.910+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-14T17:06:25.910+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\nfrom ingestion.gold_features import GoldFeaturePipeline\nGoldFeaturePipeline().run_all()\nprint(\'Gold features complete\')\n"\n    ']
+[2026-04-14T17:06:25.914+0000] {subprocess.py:86} INFO - Output:
+[2026-04-14T17:06:27.821+0000] {subprocess.py:93} INFO - Gold features complete
+[2026-04-14T17:06:27.868+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-04-14T17:06:27.906+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=f1_bigdata_pipeline, task_id=gold_features, execution_date=20260414T170558, start_date=20260414T170625, end_date=20260414T170627
+[2026-04-14T17:06:27.939+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-14T17:06:27.964+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,34 @@
+{
+  "race_results": {
+    "rows": 3524,
+    "columns": 24,
+    "nulls_before": 2140,
+    "nulls_after": 2304,
+    "duplicates_removed": 0,
+    "processed_at": "2026-04-14T17:16:09.707152"
+  },
+  "qualifying": {
+    "rows": 3518,
+    "columns": 15,
+    "nulls_before": 2693,
+    "nulls_after": 5565,
+    "duplicates_removed": 0,
+    "processed_at": "2026-04-14T17:16:09.744505"
+  },
+  "pit_stops": {
+    "rows": 5674,
+    "columns": 11,
+    "nulls_before": 0,
+    "nulls_after": 324,
+    "duplicates_removed": 0,
+    "processed_at": "2026-04-14T17:16:09.769847"
+  },
+  "laps": {
+    "rows": 181721,
+    "columns": 37,
+    "nulls_before": 557364,
+    "nulls_after": 560272,
+    "duplicates_removed": 0,
+    "processed_at": "2026-04-14T17:16:11.375000"
+  }
+}

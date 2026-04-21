@@ -1,0 +1,33 @@
+{
+  "position_predictor": {
+    "mae_old": 2.74,
+    "mae_new": 2.767,
+    "improvement": -0.027
+  },
+  "podium_classifier": {
+    "accuracy_old": 0.904,
+    "accuracy_new": 0.916,
+    "f1_old": 0.693,
+    "f1_new": 0.72
+  },
+  "winner_predictor": {
+    "accuracy_old": 0.5,
+    "accuracy_new": 0.704,
+    "top3_old": 0.896,
+    "top3_new": 0.963
+  },
+  "retrained_at": "2026-04-13T00:51:50",
+  "features_used": 39,
+  "weather_features": [
+    "avg_track_temp",
+    "max_track_temp",
+    "min_track_temp",
+    "avg_air_temp",
+    "max_humidity",
+    "avg_humidity",
+    "is_hot_race",
+    "is_cold_race",
+    "temp_variation",
+    "had_rain"
+  ]
+}

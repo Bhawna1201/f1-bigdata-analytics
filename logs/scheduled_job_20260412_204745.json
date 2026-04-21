@@ -1,0 +1,34 @@
+{
+  "job_id": "20260412_204745",
+  "started_at": "2026-04-12T20:47:45.739109",
+  "steps": [
+    {
+      "step": "ingest",
+      "status": "ok",
+      "time": "2026-04-12T20:48:34.255866"
+    },
+    {
+      "step": "silver",
+      "status": "ok",
+      "time": "2026-04-12T20:48:35.279859"
+    },
+    {
+      "step": "gold_weather",
+      "status": "ok",
+      "time": "2026-04-12T20:48:36.592898"
+    },
+    {
+      "step": "model_check",
+      "status": "ok",
+      "mae": 2.98
+    },
+    {
+      "step": "agentic_ai",
+      "status": "ok",
+      "features_found": 3
+    }
+  ],
+  "status": "completed",
+  "completed_at": "2026-04-12T20:48:38.285325",
+  "success_rate": "5/5"
+}

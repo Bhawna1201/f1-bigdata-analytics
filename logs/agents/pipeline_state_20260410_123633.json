@@ -1,0 +1,171 @@
+{
+  "data_health": {
+    "total_rows": 3458,
+    "seasons": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "columns": 35,
+    "high_null_columns": {
+      "q3_seconds": 51.5
+    },
+    "row_count_ok": true,
+    "latest_season": 2025,
+    "target_position_valid_pct": 100.0,
+    "target_podium_valid_pct": 100.0,
+    "target_winner_valid_pct": 100.0,
+    "grid_range": [
+      0,
+      20
+    ],
+    "status": "ISSUES_FOUND",
+    "issues_count": 1
+  },
+  "ingestion_status": "issues_found",
+  "data_issues": [
+    "HIGH NULL RATE: {'q3_seconds': 51.5}"
+  ],
+  "new_features_proposed": [
+    {
+      "name": "constructor_dominance",
+      "description": "Ratio of constructor points to field average",
+      "hypothesis": "Dominant constructors (ratio > 1.5) should predict podiums"
+    },
+    {
+      "name": "quali_trend",
+      "description": "Slope of qualifying gap over last 5 races (negative = improving)",
+      "hypothesis": "Drivers with improving qualifying trend should finish higher"
+    },
+    {
+      "name": "home_advantage",
+      "description": "Difference between overall form and circuit-specific form",
+      "hypothesis": "Positive value = driver performs better at this circuit than average"
+    },
+    {
+      "name": "grid_volatility",
+      "description": "Std dev of grid position over last 5 races",
+      "hypothesis": "More consistent qualifiers should finish higher"
+    },
+    {
+      "name": "points_acceleration",
+      "description": "Second derivative of cumulative points \u2014 acceleration of form",
+      "hypothesis": "Drivers gaining momentum faster should be more competitive"
+    }
+  ],
+  "new_features_accepted": [
+    "constructor_dominance",
+    "home_advantage",
+    "grid_volatility"
+  ],
+  "feature_test_results": {
+    "constructor_dominance": {
+      "correlation": 0.5947,
+      "accepted": "True"
+    },
+    "quali_trend": {
+      "correlation": 0.041,
+      "accepted": "False"
+    },
+    "home_advantage": {
+      "correlation": 0.1629,
+      "accepted": "True"
+    },
+    "grid_volatility": {
+      "correlation": 0.0659,
+      "accepted": "True"
+    },
+    "points_acceleration": {
+      "correlation": 0.0187,
+      "accepted": "False"
+    }
+  },
+  "model_performance": {
+    "position_predictor": {
+      "mae_2025": 2.87,
+      "test_rows": 479
+    },
+    "podium_classifier": {
+      "f1_2025": 0.739,
+      "test_rows": 479
+    },
+    "worst_circuits_2025": {
+      "Circuit Park Zandvoort": 4.3,
+      "Las Vegas Strip Street Circuit": 3.9,
+      "Silverstone Circuit": 3.8
+    },
+    "hardest_to_predict_2025": {
+      "Andrea Kimi Antonelli": 4.0,
+      "Charles Leclerc": 3.5,
+      "Lance Stroll": 3.3
+    },
+    "status": "EVALUATED"
+  },
+  "model_recommendations": [
+    "Model struggles most at Circuit Park Zandvoort (avg error: 4.3 positions). Consider adding circuit-specific features like elevation, corners count."
+  ],
+  "retrain_triggered": false,
+  "race_briefing": "F1 STRATEGY BRIEFING \u2014 Abu Dhabi Grand Prix (2025 Round 24)\n============================================================\n\n[DATA STATUS] ISSUES_FOUND\n  Total records: 3458\n  Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]\n  \u26a0 HIGH NULL RATE: {'q3_seconds': 51.5}\n\n[NEW FEATURES DISCOVERED]\n  + constructor_dominance: correlation with target = 0.5947\n  + home_advantage: correlation with target = 0.1629\n  + grid_volatility: correlation with target = 0.0659\n\n[MODEL PERFORMANCE]\n  Position predictor MAE: 2.87\n  Podium classifier F1: 0.739\n  Hardest circuits: {'Circuit Park Zandvoort': 4.3, 'Las Vegas Strip Street Circuit': 3.9, 'Silverstone Circuit': 3.8}\n  Hardest to predict: {'Andrea Kimi Antonelli': 4.0, 'Charles Leclerc': 3.5, 'Lance Stroll': 3.3}\n\n[RECOMMENDATIONS]\n  1. Model struggles most at Circuit Park Zandvoort (avg error: 4.3 positions). Consider adding circuit-specific features like elevation, corners count.\n\n[LATEST RACE RESULTS \u2014 Abu Dhabi Grand Prix]\n  P 1 | Grid  1 | Max Verstappen\n  P 2 | Grid  3 | Oscar Piastri\n  P 3 | Grid  2 | Lando Norris\n  P 4 | Grid  5 | Charles Leclerc\n  P 5 | Grid  4 | George Russell\n  P 6 | Grid  6 | Fernando Alonso\n  P 7 | Grid  8 | Esteban Ocon\n  P 8 | Grid 16 | Lewis Hamilton\n  P 9 | Grid 18 | Nico H\u00fclkenberg\n  P10 | Grid 15 | Lance Stroll\n\n============================================================\nGenerated: 2026-04-10T12:36:33.448705\nRetrain triggered: False",
+  "predictions": {
+    "latest_results": [
+      {
+        "driver_name": "Max Verstappen",
+        "target_position": 1,
+        "grid": 1
+      },
+      {
+        "driver_name": "Oscar Piastri",
+        "target_position": 2,
+        "grid": 3
+      },
+      {
+        "driver_name": "Lando Norris",
+        "target_position": 3,
+        "grid": 2
+      },
+      {
+        "driver_name": "Charles Leclerc",
+        "target_position": 4,
+        "grid": 5
+      },
+      {
+        "driver_name": "George Russell",
+        "target_position": 5,
+        "grid": 4
+      },
+      {
+        "driver_name": "Fernando Alonso",
+        "target_position": 6,
+        "grid": 6
+      },
+      {
+        "driver_name": "Esteban Ocon",
+        "target_position": 7,
+        "grid": 8
+      },
+      {
+        "driver_name": "Lewis Hamilton",
+        "target_position": 8,
+        "grid": 16
+      },
+      {
+        "driver_name": "Nico H\u00fclkenberg",
+        "target_position": 9,
+        "grid": 18
+      },
+      {
+        "driver_name": "Lance Stroll",
+        "target_position": 10,
+        "grid": 15
+      }
+    ]
+  },
+  "phase": "starting",
+  "errors": [],
+  "timestamp": "2026-04-10T12:36:25.186455"
+}

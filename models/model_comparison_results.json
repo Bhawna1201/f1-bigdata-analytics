@@ -1,0 +1,473 @@
+{
+  "position_prediction": {
+    "Random Forest": {
+      "mae": 2.187,
+      "rmse": 3.149,
+      "r2": 0.709,
+      "cv_mae": 2.249,
+      "cv_std": 0.12,
+      "top_features": [
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.7135335947902067
+        },
+        {
+          "feature": "pit_stops_vs_field",
+          "importance": 0.06679578001968804
+        },
+        {
+          "feature": "laps_completed_actual",
+          "importance": 0.04649993234970874
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.036824552538888285
+        },
+        {
+          "feature": "season_cumulative_points",
+          "importance": 0.02916529613559707
+        },
+        {
+          "feature": "num_pit_stops",
+          "importance": 0.00921442419664212
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.007635660797975109
+        },
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.005761631679996821
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.0043498199586395605
+        },
+        {
+          "feature": "max_tyre_life",
+          "importance": 0.004230727837711462
+        }
+      ]
+    },
+    "Gradient Boosting": {
+      "mae": 2.147,
+      "rmse": 3.051,
+      "r2": 0.727,
+      "cv_mae": 2.155,
+      "cv_std": 0.217,
+      "top_features": [
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.5805644733668818
+        },
+        {
+          "feature": "laps_completed_actual",
+          "importance": 0.06581422989211104
+        },
+        {
+          "feature": "pit_stops_vs_field",
+          "importance": 0.059279171470634294
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.03331981865555776
+        },
+        {
+          "feature": "season_cumulative_points",
+          "importance": 0.022458331130065894
+        },
+        {
+          "feature": "num_pit_stops",
+          "importance": 0.017077267946585647
+        },
+        {
+          "feature": "best_lap_pct",
+          "importance": 0.01473961059759476
+        },
+        {
+          "feature": "lap_consistency",
+          "importance": 0.011604695397668077
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.01091938834354627
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.008311378992702045
+        }
+      ]
+    },
+    "XGBoost": {
+      "mae": 2.085,
+      "rmse": 2.969,
+      "r2": 0.742,
+      "cv_mae": 2.161,
+      "cv_std": 0.234,
+      "top_features": [
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.24160537123680115
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.08003316819667816
+        },
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.040360212326049805
+        },
+        {
+          "feature": "laps_completed_actual",
+          "importance": 0.03999956324696541
+        },
+        {
+          "feature": "pit_stops_vs_field",
+          "importance": 0.03935530036687851
+        },
+        {
+          "feature": "num_pit_stops",
+          "importance": 0.03658483177423477
+        },
+        {
+          "feature": "season_cumulative_points",
+          "importance": 0.033295489847660065
+        },
+        {
+          "feature": "grid",
+          "importance": 0.014621852897107601
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.014471732079982758
+        },
+        {
+          "feature": "is_prev_top5",
+          "importance": 0.01411186158657074
+        }
+      ]
+    },
+    "best_model": "XGBoost"
+  },
+  "podium_classification": {
+    "Random Forest": {
+      "accuracy": 0.928,
+      "precision": 0.744,
+      "recall": 0.79,
+      "f1": 0.766,
+      "top_features": [
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.14092704946194412
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.11494807235955679
+        },
+        {
+          "feature": "grid",
+          "importance": 0.08676298716419013
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.06795769328975418
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.05976498060293138
+        },
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.05925921901343496
+        },
+        {
+          "feature": "constructor_temp_interaction",
+          "importance": 0.03681399179494755
+        },
+        {
+          "feature": "rolling_avg_points_5",
+          "importance": 0.03408400109255024
+        },
+        {
+          "feature": "elo_vs_field",
+          "importance": 0.03360386144201688
+        },
+        {
+          "feature": "best_lap_pct",
+          "importance": 0.02775399099940755
+        }
+      ]
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.932,
+      "precision": 0.762,
+      "recall": 0.79,
+      "f1": 0.776,
+      "top_features": [
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.4111532781456765
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.17018785240316744
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.03492154896357083
+        },
+        {
+          "feature": "pit_stops_vs_field",
+          "importance": 0.029228817856003814
+        },
+        {
+          "feature": "grid",
+          "importance": 0.023892602031418717
+        },
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.021241559508657262
+        },
+        {
+          "feature": "best_lap_pct",
+          "importance": 0.01997804638965987
+        },
+        {
+          "feature": "season_cumulative_points",
+          "importance": 0.017875450995769617
+        },
+        {
+          "feature": "laps_completed_actual",
+          "importance": 0.017127271112527622
+        },
+        {
+          "feature": "constructor_temp_interaction",
+          "importance": 0.017001784557814162
+        }
+      ]
+    },
+    "XGBoost": {
+      "accuracy": 0.928,
+      "precision": 0.762,
+      "recall": 0.753,
+      "f1": 0.758,
+      "top_features": [
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.1654113233089447
+        },
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.09400833398103714
+        },
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.039789821952581406
+        },
+        {
+          "feature": "grid",
+          "importance": 0.03557586297392845
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.03444826602935791
+        },
+        {
+          "feature": "rolling_avg_points_5",
+          "importance": 0.024992365390062332
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.022923162207007408
+        },
+        {
+          "feature": "constructor_temp_interaction",
+          "importance": 0.019857484847307205
+        },
+        {
+          "feature": "season_cumulative_points",
+          "importance": 0.016794461756944656
+        },
+        {
+          "feature": "best_lap_pct",
+          "importance": 0.016680214554071426
+        }
+      ]
+    },
+    "best_model": "Gradient Boosting"
+  },
+  "winner_prediction": {
+    "Random Forest": {
+      "winner_accuracy": 0.741,
+      "top3_accuracy": 1.0,
+      "correct": 20,
+      "total": 27,
+      "top_features": [
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.06374993889231341
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.052773755144337374
+        },
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.047370797805667095
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.045150960748260034
+        },
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.04502502196052771
+        },
+        {
+          "feature": "prev_season_wins",
+          "importance": 0.034295321629351824
+        },
+        {
+          "feature": "grid",
+          "importance": 0.033331194146031154
+        },
+        {
+          "feature": "rolling_avg_points_5",
+          "importance": 0.031068121403032695
+        },
+        {
+          "feature": "prev_season_position",
+          "importance": 0.029268671657989947
+        },
+        {
+          "feature": "prev_season_points",
+          "importance": 0.02646993793882431
+        }
+      ]
+    },
+    "Gradient Boosting": {
+      "winner_accuracy": 0.778,
+      "top3_accuracy": 0.963,
+      "correct": 21,
+      "total": 27,
+      "top_features": [
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.2550774018255449
+        },
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.10836689418413281
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.07862073044152042
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.06881216940447403
+        },
+        {
+          "feature": "prev_season_points",
+          "importance": 0.05460388237396508
+        },
+        {
+          "feature": "best_lap_pct",
+          "importance": 0.03235055265950797
+        },
+        {
+          "feature": "lap_consistency",
+          "importance": 0.02772469253215433
+        },
+        {
+          "feature": "quali_vs_teammate",
+          "importance": 0.023463737939448816
+        },
+        {
+          "feature": "pit_stops_vs_field",
+          "importance": 0.022780260977528072
+        },
+        {
+          "feature": "ewm_position_5",
+          "importance": 0.01991012740009837
+        }
+      ]
+    },
+    "XGBoost": {
+      "winner_accuracy": 0.741,
+      "top3_accuracy": 1.0,
+      "correct": 20,
+      "total": 27,
+      "top_features": [
+        {
+          "feature": "quali_gap_pct",
+          "importance": 0.14064407348632812
+        },
+        {
+          "feature": "grid_elo_interaction",
+          "importance": 0.12556158006191254
+        },
+        {
+          "feature": "rolling_avg_points_5",
+          "importance": 0.11864408105611801
+        },
+        {
+          "feature": "points_gap_to_leader",
+          "importance": 0.07369957864284515
+        },
+        {
+          "feature": "championship_position",
+          "importance": 0.060815319418907166
+        },
+        {
+          "feature": "constructor_rolling_points",
+          "importance": 0.05370151996612549
+        },
+        {
+          "feature": "quali_gap_to_pole",
+          "importance": 0.03587886318564415
+        },
+        {
+          "feature": "pace_vs_field",
+          "importance": 0.03165006637573242
+        },
+        {
+          "feature": "prev_season_position",
+          "importance": 0.027880307286977768
+        },
+        {
+          "feature": "prev_season_wins",
+          "importance": 0.02243574522435665
+        }
+      ]
+    },
+    "best_model": "Gradient Boosting"
+  },
+  "model_descriptions": {
+    "Random Forest": {
+      "type": "Bagging Ensemble",
+      "how_it_works": "Builds many independent decision trees on random subsets of data. Each tree votes on the prediction and the majority/average wins. Trees are built in PARALLEL \u2014 they don't learn from each other.",
+      "strengths": "Resistant to overfitting, handles missing values, fast to train",
+      "weaknesses": "Cannot extrapolate beyond training data range, less accurate than boosting",
+      "analogy": "Like asking 200 different F1 analysts to predict independently, then averaging their answers. Each analyst only sees part of the data."
+    },
+    "Gradient Boosting": {
+      "type": "Boosting Ensemble",
+      "how_it_works": "Builds trees SEQUENTIALLY \u2014 each new tree focuses on correcting the mistakes of the previous trees. Early trees capture the big patterns, later trees fix the details. Learning rate controls how much each tree contributes.",
+      "strengths": "Very accurate, captures complex patterns, good feature importance",
+      "weaknesses": "Slower to train, can overfit if not tuned, sensitive to noise",
+      "analogy": "Like an F1 team reviewing each race, identifying what went wrong, and adjusting strategy for the next race. Each iteration improves on the last."
+    },
+    "XGBoost": {
+      "type": "Advanced Boosting (Extreme Gradient Boosting)",
+      "how_it_works": "Same sequential boosting concept as Gradient Boosting, but with key optimizations: built-in regularization (L1/L2) to prevent overfitting, column subsampling (like Random Forest), efficient sparse data handling, and parallel tree construction within each boosting round.",
+      "strengths": "State-of-the-art accuracy, built-in regularization, handles missing values natively",
+      "weaknesses": "More hyperparameters to tune, slightly harder to interpret",
+      "analogy": "Like Gradient Boosting but with a smarter engineer who also considers 'what if I am wrong?' (regularization) and uses shortcuts to work faster."
+    }
+  },
+  "metadata": {
+    "compared_at": "2026-04-14T23:40:05.151809",
+    "features": 79
+  }
+}

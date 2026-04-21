@@ -1,0 +1,41 @@
+[2026-04-14T16:53:02.693+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest __airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__ [queued]>
+[2026-04-14T16:53:02.699+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest __airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__ [queued]>
+[2026-04-14T16:53:02.699+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-04-14T16:53:02.710+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): ingest_bronze_latest> on 2026-04-13 00:00:00+00:00
+[2026-04-14T16:53:02.717+0000] {standard_task_runner.py:60} INFO - Started process 245 to run task
+[2026-04-14T16:53:02.722+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'ingest_bronze_latest', '__airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmpfzio3zx2']
+[2026-04-14T16:53:02.725+0000] {standard_task_runner.py:88} INFO - Job 14: Subtask ingest_bronze_latest
+[2026-04-14T16:53:02.769+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.ingest_bronze_latest __airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__ [running]> on host 31aa163543c6
+[2026-04-14T16:53:02.809+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.11/site-packages/airflow/utils/context.py:207 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-04-14T16:53:02.837+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='ingest_bronze_latest' AIRFLOW_CTX_EXECUTION_DATE='2026-04-13T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='__airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__'
+[2026-04-14T16:53:02.838+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-14T16:53:02.840+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\nfrom ingestion.bronze_ingestion import ErgastIngestion, FastF1Ingestion\nimport fastf1, time\n\nseason = 2026\nergast = ErgastIngestion()\nergast.ingest_race_results(season)\ntime.sleep(2)\nergast.ingest_qualifying(season)\ntime.sleep(2)\nergast.ingest_pit_stops(season)\ntime.sleep(2)\nergast.ingest_driver_standings(season)\n\nff1 = FastF1Ingestion()\nschedule = fastf1.get_event_schedule(season)\nlatest_round = schedule[schedule[\'EventDate\'] < \'2026-04-13\'][\'RoundNumber\'].max()\nif latest_round > 0:\n    ff1.ingest_session_laps(season, int(latest_round), \'R\')\n    ff1.ingest_weather(season, int(latest_round), \'R\')\nprint(f\'Ingested up to {season} R{latest_round}\')\n"\n    ']
+[2026-04-14T16:53:02.851+0000] {subprocess.py:86} INFO - Output:
+[2026-04-14T16:53:12.916+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2026-04-14T16:53:12.923+0000] {process_utils.py:131} INFO - Sending 15 to group 245. PIDs of all processes in the group: [246, 247, 245]
+[2026-04-14T16:53:12.923+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 245
+[2026-04-14T16:53:12.925+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-04-14T16:53:12.927+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-04-14T16:53:12.952+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 203, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-04-14T16:53:12.958+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=f1_bigdata_pipeline, task_id=ingest_bronze_latest, execution_date=20260413T000000, start_date=20260414T165302, end_date=20260414T165312
+[2026-04-14T16:53:12.973+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 14 for task ingest_bronze_latest ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(f1_bigdata_pipeline, ingest_bronze_latest, __airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'ingest_bronze_latest', 'dag_id': 'f1_bigdata_pipeline', 'run_id': '__airflow_temporary_run_2026-04-14T16:53:01.616818+00:00__', 'map_index': -1, 'start_date': datetime.datetime(2026, 4, 14, 16, 53, 2, 694293, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2026, 4, 14, 16, 53, 12, 956835, tzinfo=Timezone('UTC')), 'duration': 10}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 245)
+[2026-04-14T16:53:12.982+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=245, status='terminated', exitcode=1, started='16:53:02') (245) terminated with exit code 1
+[2026-04-14T16:53:12.983+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=246, status='terminated', started='16:53:02') (246) terminated with exit code None
+[2026-04-14T16:53:12.983+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=247, status='terminated', started='16:53:02') (247) terminated with exit code None

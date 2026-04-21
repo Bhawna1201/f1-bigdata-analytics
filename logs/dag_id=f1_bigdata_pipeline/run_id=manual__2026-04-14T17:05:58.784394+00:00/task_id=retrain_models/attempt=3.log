@@ -1,0 +1,128 @@
+[2026-04-14T17:16:32.076+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.retrain_models manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:16:32.080+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.retrain_models manual__2026-04-14T17:05:58.784394+00:00 [queued]>
+[2026-04-14T17:16:32.080+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 3
+[2026-04-14T17:16:32.087+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): retrain_models> on 2026-04-14 17:05:58.784394+00:00
+[2026-04-14T17:16:32.092+0000] {standard_task_runner.py:60} INFO - Started process 907 to run task
+[2026-04-14T17:16:32.094+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'retrain_models', 'manual__2026-04-14T17:05:58.784394+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmpnccjnf4k']
+[2026-04-14T17:16:32.096+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask retrain_models
+[2026-04-14T17:16:32.154+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.retrain_models manual__2026-04-14T17:05:58.784394+00:00 [running]> on host 31aa163543c6
+[2026-04-14T17:16:32.198+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='retrain_models' AIRFLOW_CTX_EXECUTION_DATE='2026-04-14T17:05:58.784394+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-14T17:05:58.784394+00:00'
+[2026-04-14T17:16:32.199+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-14T17:16:32.200+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\n\nfrom enhanced_pipeline import build_weather_features, merge_weather_into_gold\nbuild_weather_features()\nmerge_weather_into_gold()\n\nfrom ml.integrate_idle_data import merge_all_into_gold\nmerge_all_into_gold()\n\nfrom ml.model_comparison import main as compare_main\ncompare_main()\nprint(\'Models retrained\')\n"\n    ']
+[2026-04-14T17:16:32.204+0000] {subprocess.py:86} INFO - Output:
+[2026-04-14T17:16:35.739+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,737 | model_comparison | INFO | 🏎️  F1 ML Model Comparison — 3 Tree-Based Ensembles
+[2026-04-14T17:16:35.743+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO | ======================================================================
+[2026-04-14T17:16:35.743+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |
+[2026-04-14T17:16:35.747+0000] {subprocess.py:93} INFO - MODEL EXPLANATIONS:
+[2026-04-14T17:16:35.748+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |
+[2026-04-14T17:16:35.748+0000] {subprocess.py:93} INFO -   Random Forest (Bagging Ensemble):
+[2026-04-14T17:16:35.749+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     How: Builds many independent decision trees on random subsets of data. Each tree votes on the prediction and the majority/average wins. Trees are built in PARALLEL — they don't learn from each other.
+[2026-04-14T17:16:35.753+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Strengths: Resistant to overfitting, handles missing values, fast to train
+[2026-04-14T17:16:35.754+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Weaknesses: Cannot extrapolate beyond training data range, less accurate than boosting
+[2026-04-14T17:16:35.755+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Analogy: Like asking 200 different F1 analysts to predict independently, then averaging their answers. Each analyst only sees part of the data.
+[2026-04-14T17:16:35.755+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |
+[2026-04-14T17:16:35.757+0000] {subprocess.py:93} INFO -   Gradient Boosting (Boosting Ensemble):
+[2026-04-14T17:16:35.757+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     How: Builds trees SEQUENTIALLY — each new tree focuses on correcting the mistakes of the previous trees. Early trees capture the big patterns, later trees fix the details. Learning rate controls how much each tree contributes.
+[2026-04-14T17:16:35.758+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Strengths: Very accurate, captures complex patterns, good feature importance
+[2026-04-14T17:16:35.758+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Weaknesses: Slower to train, can overfit if not tuned, sensitive to noise
+[2026-04-14T17:16:35.759+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Analogy: Like an F1 team reviewing each race, identifying what went wrong, and adjusting strategy for the next race. Each iteration improves on the last.
+[2026-04-14T17:16:35.760+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |
+[2026-04-14T17:16:35.760+0000] {subprocess.py:93} INFO -   XGBoost (Advanced Boosting (Extreme Gradient Boosting)):
+[2026-04-14T17:16:35.760+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     How: Same sequential boosting concept as Gradient Boosting, but with key optimizations: built-in regularization (L1/L2) to prevent overfitting, column subsampling (like Random Forest), efficient sparse data handling, and parallel tree construction within each boosting round.
+[2026-04-14T17:16:35.762+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Strengths: State-of-the-art accuracy, built-in regularization, handles missing values natively
+[2026-04-14T17:16:35.763+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Weaknesses: More hyperparameters to tune, slightly harder to interpret
+[2026-04-14T17:16:35.763+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,738 | model_comparison | INFO |     Analogy: Like Gradient Boosting but with a smarter engineer who also considers 'what if I am wrong?' (regularization) and uses shortcuts to work faster.
+[2026-04-14T17:16:35.763+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,760 | model_comparison | INFO | Loaded race_prediction_features_complete.parquet: 3524 rows, 85 columns
+[2026-04-14T17:16:35.790+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,790 | model_comparison | INFO | Features: 79 | Train: 2979 | Test: 545
+[2026-04-14T17:16:35.790+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,790 | model_comparison | INFO |
+[2026-04-14T17:16:35.791+0000] {subprocess.py:93} INFO - ======================================================================
+[2026-04-14T17:16:35.791+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,790 | model_comparison | INFO | TASK 1: POSITION PREDICTION — Which position will the driver finish?
+[2026-04-14T17:16:35.791+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,790 | model_comparison | INFO | ======================================================================
+[2026-04-14T17:16:35.792+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,792 | model_comparison | INFO | Train: 2979 | Test: 545
+[2026-04-14T17:16:35.792+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:35,792 | model_comparison | INFO |
+[2026-04-14T17:16:35.792+0000] {subprocess.py:93} INFO -   [Random Forest] — Bagging Ensemble
+[2026-04-14T17:16:41.244+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:41,243 | model_comparison | INFO |   MAE: 2.187 | RMSE: 3.149 | R²: 0.709 | CV MAE: 2.249
+[2026-04-14T17:16:41.247+0000] {subprocess.py:93} INFO - 2026-04-14 17:16:41,243 | model_comparison | INFO |
+[2026-04-14T17:16:41.247+0000] {subprocess.py:93} INFO -   [Gradient Boosting] — Boosting Ensemble
+[2026-04-14T17:17:15.663+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:15,662 | model_comparison | INFO |   MAE: 2.147 | RMSE: 3.051 | R²: 0.727 | CV MAE: 2.155
+[2026-04-14T17:17:15.668+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:15,662 | model_comparison | INFO |
+[2026-04-14T17:17:15.669+0000] {subprocess.py:93} INFO -   [XGBoost] — Advanced Boosting (Extreme Gradient Boosting)
+[2026-04-14T17:17:35.281+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,280 | model_comparison | INFO |   MAE: 2.085 | RMSE: 2.969 | R²: 0.742 | CV MAE: 2.161
+[2026-04-14T17:17:35.294+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,294 | model_comparison | INFO |
+[2026-04-14T17:17:35.295+0000] {subprocess.py:93} INFO -   🏆 BEST: XGBoost (MAE: 2.085)
+[2026-04-14T17:17:35.299+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,299 | model_comparison | INFO |
+[2026-04-14T17:17:35.300+0000] {subprocess.py:93} INFO - ======================================================================
+[2026-04-14T17:17:35.300+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,299 | model_comparison | INFO | TASK 2: PODIUM CLASSIFICATION — Will the driver finish top 3?
+[2026-04-14T17:17:35.300+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,299 | model_comparison | INFO | ======================================================================
+[2026-04-14T17:17:35.304+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,304 | model_comparison | INFO | Train: 2979 | Test: 545 | Podium rate: 14.9%
+[2026-04-14T17:17:35.305+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,305 | model_comparison | INFO |
+[2026-04-14T17:17:35.306+0000] {subprocess.py:93} INFO -   [Random Forest] — Bagging Ensemble
+[2026-04-14T17:17:35.706+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,706 | model_comparison | INFO |   Acc: 0.928 | Prec: 0.744 | Rec: 0.790 | F1: 0.766
+[2026-04-14T17:17:35.706+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:35,706 | model_comparison | INFO |
+[2026-04-14T17:17:35.706+0000] {subprocess.py:93} INFO -   [Gradient Boosting] — Boosting Ensemble
+[2026-04-14T17:17:42.918+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:42,917 | model_comparison | INFO |   Acc: 0.932 | Prec: 0.762 | Rec: 0.790 | F1: 0.776
+[2026-04-14T17:17:42.921+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:42,918 | model_comparison | INFO |
+[2026-04-14T17:17:42.921+0000] {subprocess.py:93} INFO -   [XGBoost] — Advanced Boosting (Extreme Gradient Boosting)
+[2026-04-14T17:17:44.784+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:44,783 | model_comparison | INFO |   Acc: 0.928 | Prec: 0.762 | Rec: 0.753 | F1: 0.758
+[2026-04-14T17:17:44.798+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:44,798 | model_comparison | INFO |
+[2026-04-14T17:17:44.798+0000] {subprocess.py:93} INFO -   🏆 BEST: Gradient Boosting (F1: 0.776)
+[2026-04-14T17:17:44.802+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:44,802 | model_comparison | INFO |
+[2026-04-14T17:17:44.803+0000] {subprocess.py:93} INFO - ======================================================================
+[2026-04-14T17:17:44.803+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:44,802 | model_comparison | INFO | TASK 3: WINNER PREDICTION — Who will win the race?
+[2026-04-14T17:17:44.803+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:44,802 | model_comparison | INFO | ======================================================================
+[2026-04-14T17:17:44.814+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:44,813 | model_comparison | INFO |
+[2026-04-14T17:17:44.815+0000] {subprocess.py:93} INFO -   [Random Forest] — Bagging Ensemble
+[2026-04-14T17:17:45.630+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:45,630 | model_comparison | INFO |   Winner: 20/27 (74.1%) | Top-3: 27/27 (100.0%)
+[2026-04-14T17:17:45.630+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:45,630 | model_comparison | INFO |
+[2026-04-14T17:17:45.630+0000] {subprocess.py:93} INFO -   [Gradient Boosting] — Boosting Ensemble
+[2026-04-14T17:17:54.525+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,524 | model_comparison | INFO |   Winner: 21/27 (77.8%) | Top-3: 26/27 (96.3%)
+[2026-04-14T17:17:54.529+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,524 | model_comparison | INFO |
+[2026-04-14T17:17:54.529+0000] {subprocess.py:93} INFO -   [XGBoost] — Advanced Boosting (Extreme Gradient Boosting)
+[2026-04-14T17:17:54.864+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,863 | model_comparison | INFO |   Winner: 20/27 (74.1%) | Top-3: 27/27 (100.0%)
+[2026-04-14T17:17:54.871+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,867 | model_comparison | INFO |
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO -   Sample Predictions (Gradient Boosting):
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,868 | model_comparison | INFO |     ✗ 2025 R 1 | Predicted: Max Verstappen (31%), Lando Norris (16%), Oscar Piastri (5%) | Actual: Lando Norris
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,869 | model_comparison | INFO |     ✓ 2025 R 2 | Predicted: Oscar Piastri (49%), George Russell (2%), Max Verstappen (2%) | Actual: Oscar Piastri
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,869 | model_comparison | INFO |     ✓ 2025 R 3 | Predicted: Max Verstappen (40%), Lando Norris (5%), Charles Leclerc (1%) | Actual: Max Verstappen
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,870 | model_comparison | INFO |     ✓ 2025 R 4 | Predicted: Oscar Piastri (77%), Max Verstappen (5%), George Russell (5%) | Actual: Oscar Piastri
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,870 | model_comparison | INFO |     ✗ 2025 R 5 | Predicted: Max Verstappen (64%), Oscar Piastri (44%), George Russell (4%) | Actual: Oscar Piastri
+[2026-04-14T17:17:54.872+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,871 | model_comparison | INFO |     ✗ 2025 R 6 | Predicted: Lando Norris (16%), Max Verstappen (6%), Oscar Piastri (6%) | Actual: Oscar Piastri
+[2026-04-14T17:17:54.873+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,871 | model_comparison | INFO |     ✓ 2025 R 7 | Predicted: Max Verstappen (63%), Oscar Piastri (22%), Lando Norris (2%) | Actual: Max Verstappen
+[2026-04-14T17:17:54.873+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,872 | model_comparison | INFO |     ✓ 2025 R 8 | Predicted: Lando Norris (86%), Oscar Piastri (55%), Charles Leclerc (52%) | Actual: Lando Norris
+[2026-04-14T17:17:54.873+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,873 | model_comparison | INFO |     ✓ 2025 R 9 | Predicted: Oscar Piastri (60%), Max Verstappen (14%), Lando Norris (13%) | Actual: Oscar Piastri
+[2026-04-14T17:17:54.874+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,874 | model_comparison | INFO |     ✓ 2025 R10 | Predicted: George Russell (25%), Max Verstappen (17%), Lando Norris (15%) | Actual: George Russell
+[2026-04-14T17:17:54.874+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,874 | model_comparison | INFO |     ... (17 more)
+[2026-04-14T17:17:54.885+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,885 | model_comparison | INFO |
+[2026-04-14T17:17:54.888+0000] {subprocess.py:93} INFO -   🏆 BEST: Gradient Boosting (Winner: 77.8%)
+[2026-04-14T17:17:54.890+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |
+[2026-04-14T17:17:54.893+0000] {subprocess.py:93} INFO - ======================================================================
+[2026-04-14T17:17:54.896+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO | FINAL COMPARISON
+[2026-04-14T17:17:54.898+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO | ======================================================================
+[2026-04-14T17:17:54.899+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |
+[2026-04-14T17:17:54.900+0000] {subprocess.py:93} INFO -   POSITION PREDICTION (lower MAE = better):
+[2026-04-14T17:17:54.900+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     XGBoost                   MAE: 2.085  RMSE: 2.969  R²: 0.742 🏆
+[2026-04-14T17:17:54.900+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Gradient Boosting         MAE: 2.147  RMSE: 3.051  R²: 0.727
+[2026-04-14T17:17:54.901+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Random Forest             MAE: 2.187  RMSE: 3.149  R²: 0.709
+[2026-04-14T17:17:54.901+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |
+[2026-04-14T17:17:54.901+0000] {subprocess.py:93} INFO -   PODIUM CLASSIFICATION (higher F1 = better):
+[2026-04-14T17:17:54.901+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Gradient Boosting         F1: 0.776  Acc: 0.932  Prec: 0.762  Rec: 0.790 🏆
+[2026-04-14T17:17:54.902+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Random Forest             F1: 0.766  Acc: 0.928  Prec: 0.744  Rec: 0.790
+[2026-04-14T17:17:54.903+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     XGBoost                   F1: 0.758  Acc: 0.928  Prec: 0.762  Rec: 0.753
+[2026-04-14T17:17:54.903+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO -   WINNER PREDICTION (higher accuracy = better):
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Gradient Boosting         Winner: 77.8%  Top-3: 96.3%  (21/27) 🏆
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Random Forest             Winner: 74.1%  Top-3: 100.0%  (20/27)
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     XGBoost                   Winner: 74.1%  Top-3: 100.0%  (20/27)
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO -   WHY THESE 3 MODELS?
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Random Forest  = Bagging (parallel trees, majority vote)
+[2026-04-14T17:17:54.904+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     Gradient Boost = Boosting (sequential trees, learn from mistakes)
+[2026-04-14T17:17:54.907+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     XGBoost        = Advanced Boosting (regularized, optimized)
+[2026-04-14T17:17:54.908+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |     All three are tree-based ensembles — the gold standard for tabular data.
+[2026-04-14T17:17:54.908+0000] {subprocess.py:93} INFO - 2026-04-14 17:17:54,890 | model_comparison | INFO |
+[2026-04-14T17:17:54.908+0000] {subprocess.py:93} INFO - 🏁 Comparison complete
+[2026-04-14T17:17:54.908+0000] {subprocess.py:93} INFO - Models retrained
+[2026-04-14T17:17:55.088+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-04-14T17:17:55.117+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=f1_bigdata_pipeline, task_id=retrain_models, execution_date=20260414T170558, start_date=20260414T171632, end_date=20260414T171755
+[2026-04-14T17:17:55.132+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-14T17:17:55.147+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

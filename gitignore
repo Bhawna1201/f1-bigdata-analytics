@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data files (too large for GitHub)
+data/bronze/*.parquet
+data/silver/*.parquet
+data/gold/*.parquet
+data/bronze/**/*.parquet
+data/silver/**/*.parquet
+data/gold/**/*.parquet
+*.parquet
+
+# BUT keep the data directory structure
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
+
+# ML Models (too large for GitHub — regenerate with model_comparison.py)
+models/*.pkl
+models/*.joblib
+
+# FastF1 cache
+ff1_cache/
+fastf1_cache/
+
+# Logs
+logs/
+*.log
+airflow/logs/
+
+# Docker volumes
+postgres_data/
+
+# Airflow
+airflow/plugins/
+airflow/config/
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+.DS_Store
+*.swp
+*~
