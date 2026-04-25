@@ -149,6 +149,7 @@ python agents/agentic_pipeline.py
 streamlit run dashboard/app.py
 ```
 Open http://localhost:8501
+Cloud https://f1-bigdata-analytics.streamlit.app/
 
 ---
 
