@@ -1,0 +1,43 @@
+name: F1 Pipeline — CI/CD Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      - name: Verify imports
+        run: |
+          python -c "import pandas, numpy, sklearn, xgboost, joblib"
+          echo "All imports verified"
+      - name: Test model loading
+        run: |
+          python -c "
+          import joblib, os
+          for f in ['position_predictor.pkl','podium_classifier.pkl','winner_predictor.pkl']:
+            path = f'models/{f}'
+            if os.path.exists(path):
+              model = joblib.load(path)
+              print(f'{f} loaded — {type(model).__name__}')
+          "
+      - name: Test data integrity
+        run: |
+          python -c "
+          import pandas as pd, glob
+          gold = glob.glob('data/gold/*.parquet')
+          for f in gold:
+            df = pd.read_parquet(f)
+            print(f'{f}: {len(df)} rows, {len(df.columns)} cols')
+          "
