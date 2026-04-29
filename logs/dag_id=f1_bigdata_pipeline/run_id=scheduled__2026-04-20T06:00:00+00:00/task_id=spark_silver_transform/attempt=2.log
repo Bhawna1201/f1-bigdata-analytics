@@ -1,0 +1,79 @@
+[2026-04-27T09:08:06.841+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.spark_silver_transform scheduled__2026-04-20T06:00:00+00:00 [queued]>
+[2026-04-27T09:08:06.849+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.spark_silver_transform scheduled__2026-04-20T06:00:00+00:00 [queued]>
+[2026-04-27T09:08:06.849+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 3
+[2026-04-27T09:08:06.867+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_silver_transform> on 2026-04-20 06:00:00+00:00
+[2026-04-27T09:08:06.919+0000] {standard_task_runner.py:60} INFO - Started process 10446 to run task
+[2026-04-27T09:08:07.000+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'spark_silver_transform', 'scheduled__2026-04-20T06:00:00+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmp4lc06zyp']
+[2026-04-27T09:08:07.044+0000] {standard_task_runner.py:88} INFO - Job 48: Subtask spark_silver_transform
+[2026-04-27T09:08:07.363+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.spark_silver_transform scheduled__2026-04-20T06:00:00+00:00 [running]> on host 6879df3dac39
+[2026-04-27T09:08:07.701+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='spark_silver_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-04-20T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-04-20T06:00:00+00:00'
+[2026-04-27T09:08:07.706+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-27T09:08:07.711+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        docker exec f1_spark_master /opt/spark/bin/spark-submit             --master spark://spark-master:7077             --driver-memory 1g             --executor-memory 1g             /opt/spark-jobs/spark_silver.py\n    ']
+[2026-04-27T09:08:07.731+0000] {subprocess.py:86} INFO - Output:
+[2026-04-27T09:08:17.243+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SparkContext: Running Spark version 3.5.1
+[2026-04-27T09:08:17.254+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SparkContext: OS info Linux, 6.6.32-linuxkit, aarch64
+[2026-04-27T09:08:17.254+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SparkContext: Java version 11.0.22
+[2026-04-27T09:08:17.426+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-04-27T09:08:17.699+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO ResourceUtils: ==============================================================
+[2026-04-27T09:08:17.702+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-04-27T09:08:17.704+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO ResourceUtils: ==============================================================
+[2026-04-27T09:08:17.705+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SparkContext: Submitted application: F1_BigData_Silver
+[2026-04-27T09:08:17.771+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-04-27T09:08:17.801+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO ResourceProfile: Limiting resource is cpu
+[2026-04-27T09:08:17.802+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-04-27T09:08:17.945+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SecurityManager: Changing view acls to: spark
+[2026-04-27T09:08:17.946+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SecurityManager: Changing modify acls to: spark
+[2026-04-27T09:08:17.947+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SecurityManager: Changing view acls groups to:
+[2026-04-27T09:08:17.948+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SecurityManager: Changing modify acls groups to:
+[2026-04-27T09:08:17.949+0000] {subprocess.py:93} INFO - 26/04/27 09:08:17 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-04-27T09:08:19.308+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO Utils: Successfully started service 'sparkDriver' on port 46385.
+[2026-04-27T09:08:19.423+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO SparkEnv: Registering MapOutputTracker
+[2026-04-27T09:08:19.529+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO SparkEnv: Registering BlockManagerMaster
+[2026-04-27T09:08:19.572+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-04-27T09:08:19.573+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-04-27T09:08:19.577+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-04-27T09:08:19.657+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-816cdbab-f454-4a2b-9b27-d3d238376d02
+[2026-04-27T09:08:19.696+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-04-27T09:08:19.747+0000] {subprocess.py:93} INFO - 26/04/27 09:08:19 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-04-27T09:08:20.135+0000] {subprocess.py:93} INFO - 26/04/27 09:08:20 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-04-27T09:08:20.461+0000] {subprocess.py:93} INFO - 26/04/27 09:08:20 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-04-27T09:08:20.485+0000] {subprocess.py:93} INFO - 26/04/27 09:08:20 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+[2026-04-27T09:08:24.882+0000] {subprocess.py:93} INFO - 26/04/27 09:08:24 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-04-27T09:08:25.510+0000] {subprocess.py:93} INFO - 26/04/27 09:08:25 INFO TransportClientFactory: Successfully created connection to spark-master/172.20.0.3:7077 after 355 ms (0 ms spent in bootstraps)
+[2026-04-27T09:52:24.649+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260427095224-0003
+[2026-04-27T09:52:24.731+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36177.
+[2026-04-27T09:52:24.732+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO NettyBlockTransferService: Server created on e8718f0f08fc:36177
+[2026-04-27T09:52:24.737+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-04-27T09:52:24.756+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, e8718f0f08fc, 36177, None)
+[2026-04-27T09:52:24.768+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO BlockManagerMasterEndpoint: Registering block manager e8718f0f08fc:36177 with 434.4 MiB RAM, BlockManagerId(driver, e8718f0f08fc, 36177, None)
+[2026-04-27T09:52:24.780+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, e8718f0f08fc, 36177, None)
+[2026-04-27T09:52:24.787+0000] {subprocess.py:93} INFO - 26/04/27 09:52:24 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, e8718f0f08fc, 36177, None)
+[2026-04-27T09:52:25.741+0000] {subprocess.py:93} INFO - 26/04/27 09:52:25 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-04-27T09:52:26.620+0000] {subprocess.py:93} INFO - F1 Big Data — Spark Silver Transform
+[2026-04-27T09:52:26.634+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-27T09:52:26.636+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-27T09:52:26.636+0000] {subprocess.py:93} INFO - SILVER: Race Results
+[2026-04-27T09:52:26.637+0000] {subprocess.py:93} INFO - ============================================================
+[2026-04-27T09:52:38.729+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2026-04-27T09:52:38.780+0000] {process_utils.py:131} INFO - Sending 15 to group 10446. PIDs of all processes in the group: [10447, 10448, 10446]
+[2026-04-27T09:52:38.782+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 10446
+[2026-04-27T09:52:38.785+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-04-27T09:52:38.792+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-04-27T09:52:39.091+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 203, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-04-27T09:52:39.109+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=f1_bigdata_pipeline, task_id=spark_silver_transform, execution_date=20260420T060000, start_date=20260427T090806, end_date=20260427T095239
+[2026-04-27T09:52:39.133+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=10448, status='terminated', started='09:08:06') (10448) terminated with exit code None
+[2026-04-27T09:52:39.166+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 48 for task spark_silver_transform (Task received SIGTERM signal; 10446)
+[2026-04-27T09:52:39.243+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=10446, status='terminated', exitcode=1, started='09:08:05') (10446) terminated with exit code 1
+[2026-04-27T09:52:39.244+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=10447, status='terminated', started='09:08:06') (10447) terminated with exit code None

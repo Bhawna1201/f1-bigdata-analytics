@@ -498,6 +498,7 @@ def model_agent(state: AgentState) -> AgentState:
 # ═══════════════════════════════════════════════════════════
 # Agent 4: Insight Agent — Strategy Briefing Generator
 # ═══════════════════════════════════════════════════════════
+from llm_insight_agent import get_llm_briefing
 
 def insight_agent(state: AgentState) -> AgentState:
     """
@@ -585,7 +586,17 @@ def insight_agent(state: AgentState) -> AgentState:
         briefing_parts.append(f"Generated: {datetime.now().isoformat()}")
         briefing_parts.append(f"Retrain triggered: {state.get('retrain_triggered', False)}")
 
+        
+
         briefing = "\n".join(briefing_parts)
+
+        # ── Generate LLM-enhanced briefing ──
+        try:
+            llm_briefing = get_llm_briefing(state)
+            briefing = briefing + "\n\n" + "=" * 60 + "\n[AI-POWERED ANALYSIS — Gemini 2.0 Flash]\n" + "=" * 60 + "\n\n" + llm_briefing
+            logger.info("  ✅ LLM briefing generated successfully")
+        except Exception as llm_err:
+            logger.warning(f"  ⚠️ LLM briefing skipped: {llm_err}")
 
         # Save briefing
         briefing_path = AGENTS_LOG / f"briefing_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"

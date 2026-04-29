@@ -1,0 +1,168 @@
+[2026-04-29T00:00:19.861+0000] {processor.py:161} INFO - Started process (PID=18704) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:00:19.862+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:00:19.864+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:00:19.863+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:00:19.898+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:00:19.944+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:00:19.944+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:00:19.964+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:00:19.964+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:00:19.982+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.127 seconds
+[2026-04-29T00:00:50.467+0000] {processor.py:161} INFO - Started process (PID=18709) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:00:50.475+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:00:50.477+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:00:50.476+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:00:50.515+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:00:50.566+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:00:50.566+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:00:50.592+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:00:50.592+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:00:50.605+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.148 seconds
+[2026-04-29T00:01:20.967+0000] {processor.py:161} INFO - Started process (PID=18714) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:01:20.970+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:01:20.971+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:01:20.970+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:01:21.017+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:01:21.059+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:01:21.059+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:01:21.077+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:01:21.077+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:01:21.087+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.126 seconds
+[2026-04-29T00:01:51.433+0000] {processor.py:161} INFO - Started process (PID=18719) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:01:51.435+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:01:51.437+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:01:51.436+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:01:51.457+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:01:51.503+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:01:51.503+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:01:51.527+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:01:51.526+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:01:51.537+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.119 seconds
+[2026-04-29T00:02:22.222+0000] {processor.py:161} INFO - Started process (PID=18724) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:02:22.223+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:02:22.225+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:02:22.224+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:02:22.259+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:02:22.324+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:02:22.324+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:02:22.359+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:02:22.358+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:02:22.371+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.157 seconds
+[2026-04-29T00:02:52.636+0000] {processor.py:161} INFO - Started process (PID=18729) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:02:52.638+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:02:52.640+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:02:52.639+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:02:52.675+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:02:52.718+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:02:52.718+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:02:52.739+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:02:52.739+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:02:52.760+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.127 seconds
+[2026-04-29T00:03:23.091+0000] {processor.py:161} INFO - Started process (PID=18734) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:03:23.093+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:03:23.094+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:03:23.094+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:03:23.117+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:03:23.161+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:03:23.161+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:03:23.179+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:03:23.179+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:03:23.189+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.107 seconds
+[2026-04-29T00:03:53.799+0000] {processor.py:161} INFO - Started process (PID=18739) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:03:53.801+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:03:53.803+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:03:53.802+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:03:53.839+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:03:53.914+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:03:53.914+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:03:53.938+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:03:53.938+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:03:53.968+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.180 seconds
+[2026-04-29T00:04:24.414+0000] {processor.py:161} INFO - Started process (PID=18744) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:04:24.417+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:04:24.419+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:04:24.418+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:04:24.452+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:04:24.485+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:04:24.485+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:04:24.518+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:04:24.518+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:04:24.540+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.132 seconds
+[2026-04-29T00:04:54.782+0000] {processor.py:161} INFO - Started process (PID=18749) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:04:54.785+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:04:54.786+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:04:54.785+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:04:54.818+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:04:54.849+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:04:54.848+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:04:54.866+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:04:54.866+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:04:54.888+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.112 seconds
+[2026-04-29T00:05:25.152+0000] {processor.py:161} INFO - Started process (PID=18754) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:05:25.161+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:05:25.168+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:05:25.165+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:05:25.193+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:05:25.232+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:05:25.232+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:05:25.256+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:05:25.256+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:05:25.266+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.121 seconds
+[2026-04-29T00:05:55.613+0000] {processor.py:161} INFO - Started process (PID=18759) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:05:55.616+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:05:55.618+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:05:55.617+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:05:55.671+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:05:55.706+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:05:55.706+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:05:55.725+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:05:55.724+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:05:55.735+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.131 seconds
+[2026-04-29T00:06:25.975+0000] {processor.py:161} INFO - Started process (PID=18764) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:06:25.977+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:06:25.979+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:06:25.978+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:06:26.005+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:06:26.041+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:06:26.041+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:06:26.058+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:06:26.058+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:06:26.069+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.104 seconds
+[2026-04-29T00:06:56.390+0000] {processor.py:161} INFO - Started process (PID=18769) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:06:56.394+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:06:56.395+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:06:56.394+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:06:56.426+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:06:56.469+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:06:56.469+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:06:56.487+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:06:56.487+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:06:56.497+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.113 seconds
+[2026-04-29T00:07:27.237+0000] {processor.py:161} INFO - Started process (PID=18774) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:07:27.240+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:07:27.243+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:07:27.243+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:07:27.268+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:07:27.320+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:07:27.320+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:07:27.360+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:07:27.360+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:07:27.374+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.148 seconds
+[2026-04-29T00:07:57.619+0000] {processor.py:161} INFO - Started process (PID=18779) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:07:57.621+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:07:57.622+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:07:57.621+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:07:57.643+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:07:57.672+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:07:57.672+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:07:57.689+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:07:57.689+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:07:57.699+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.091 seconds
+[2026-04-29T00:08:28.146+0000] {processor.py:161} INFO - Started process (PID=18784) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:08:28.150+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:08:28.161+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:08:28.157+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:08:28.192+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:08:28.223+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:08:28.223+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:08:28.255+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:08:28.255+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:08:28.266+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.129 seconds
+[2026-04-29T00:08:58.506+0000] {processor.py:161} INFO - Started process (PID=18789) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:08:58.508+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:08:58.510+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:08:58.509+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:08:58.544+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:08:58.575+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:08:58.575+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:08:58.600+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:08:58.600+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:08:58.611+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.112 seconds
+[2026-04-29T00:09:28.973+0000] {processor.py:161} INFO - Started process (PID=18794) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:09:28.976+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:09:28.978+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:09:28.977+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:09:29.006+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:09:29.054+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:09:29.054+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:09:29.091+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:09:29.091+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:09:29.102+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.138 seconds
+[2026-04-29T00:09:59.423+0000] {processor.py:161} INFO - Started process (PID=18799) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:09:59.425+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:09:59.427+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:09:59.426+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:09:59.448+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:09:59.493+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:09:59.493+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:09:59.512+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:09:59.512+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:09:59.533+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.131 seconds
+[2026-04-29T00:10:30.383+0000] {processor.py:161} INFO - Started process (PID=18804) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:10:30.385+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:10:30.386+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:10:30.386+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:10:30.421+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:10:30.477+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:10:30.477+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:10:30.500+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:10:30.500+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:10:30.514+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.139 seconds
+[2026-04-29T00:11:00.751+0000] {processor.py:161} INFO - Started process (PID=18809) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:11:00.753+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:11:00.755+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:11:00.754+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:11:00.777+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:11:00.819+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:11:00.819+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:11:00.836+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:11:00.836+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:11:00.846+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.103 seconds
+[2026-04-29T00:11:31.289+0000] {processor.py:161} INFO - Started process (PID=18814) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:11:31.292+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:11:31.294+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:11:31.293+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:11:31.324+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:11:31.359+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:11:31.359+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:11:31.385+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:11:31.384+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:11:31.395+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.129 seconds
+[2026-04-29T00:12:01.682+0000] {processor.py:161} INFO - Started process (PID=18819) to work on /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:12:01.686+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/f1_pipeline_dag.py for tasks to queue
+[2026-04-29T00:12:01.688+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:12:01.686+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:12:01.738+0000] {processor.py:840} INFO - DAG(s) 'f1_bigdata_pipeline' retrieved from /opt/airflow/dags/f1_pipeline_dag.py
+[2026-04-29T00:12:01.777+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:12:01.777+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-04-29T00:12:01.797+0000] {logging_mixin.py:188} INFO - [2026-04-29T00:12:01.796+0000] {dag.py:3823} INFO - Setting next_dagrun for f1_bigdata_pipeline to 2026-04-27 06:00:00+00:00, run_after=2026-05-04 06:00:00+00:00
+[2026-04-29T00:12:01.821+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/f1_pipeline_dag.py took 0.149 seconds

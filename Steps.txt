@@ -1,0 +1,23 @@
+docker-compose up -d
+This starts all 7 containers.
+
+Step 2 — Check containers:
+bashdocker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+ containers are running.
+
+Step 4 — Check Airflow:
+Open http://localhost:8081 (login: admin / admin)
+Step 5 — Check Spark:
+Open http://localhost:8080
+
+
+Step 1 — Wait 30 seconds, then open:
+http://localhost:8081
+Step 2 — If it doesn't load, check logs:
+docker logs f1_airflow_web --tail 30
+
+Stale PID file is blocking Airflow. Fix it:
+docker exec f1_airflow_web rm -f /opt/airflow/airflow-webserver.pid
+docker restart f1_airflow_web
+
+AIzaSyDhBnOrKCTCacZ4l5XAku4PTBlWKif0BmQ

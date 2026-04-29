@@ -16,3 +16,7 @@ xgboost>=2.0.0
 
 # docker exec f1_airflow_web python -m pip install fastf1 scikit-learn xgboost joblib langgraph langchain-core requests
 # docker exec f1_airflow_scheduler python -m pip install fastf1 scikit-learn xgboost joblib langgraph langchain-core requests
+
+#docker-compose up -d
+# docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
