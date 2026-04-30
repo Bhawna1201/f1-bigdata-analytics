@@ -1,0 +1,202 @@
+[
+  {
+    "timestamp": "2026-04-29T06:48:08.785006",
+    "run_date": "2026-04-29",
+    "data_health": {
+      "status": "ISSUES_FOUND",
+      "row_count": 0,
+      "key_null_rates": {}
+    },
+    "features_proposed": 5,
+    "features_accepted": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0.5936
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0.1665
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0.0644
+      }
+    ],
+    "features_rejected": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0
+      },
+      {
+        "name": "quali_trend",
+        "correlation": 0
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0
+      },
+      {
+        "name": "points_acceleration",
+        "correlation": 0
+      }
+    ],
+    "model_mae": null,
+    "worst_circuits": [],
+    "retrain_triggered": false,
+    "briefing_preview": ""
+  },
+  {
+    "timestamp": "2026-04-30T11:08:44.419715",
+    "run_date": "2026-04-30",
+    "data_health": {
+      "status": "ISSUES_FOUND",
+      "row_count": 0,
+      "key_null_rates": {}
+    },
+    "features_proposed": 5,
+    "features_accepted": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0.5936
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0.1665
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0.0644
+      }
+    ],
+    "features_rejected": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0
+      },
+      {
+        "name": "quali_trend",
+        "correlation": 0
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0
+      },
+      {
+        "name": "points_acceleration",
+        "correlation": 0
+      }
+    ],
+    "model_mae": null,
+    "worst_circuits": [],
+    "retrain_triggered": false,
+    "briefing_preview": ""
+  },
+  {
+    "timestamp": "2026-04-30T12:21:09.837731",
+    "run_date": "2026-04-30",
+    "data_health": {
+      "status": "ISSUES_FOUND",
+      "row_count": 0,
+      "key_null_rates": {}
+    },
+    "features_proposed": 5,
+    "features_accepted": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0.5936
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0.1665
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0.0644
+      }
+    ],
+    "features_rejected": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0
+      },
+      {
+        "name": "quali_trend",
+        "correlation": 0
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0
+      },
+      {
+        "name": "points_acceleration",
+        "correlation": 0
+      }
+    ],
+    "model_mae": null,
+    "worst_circuits": [],
+    "retrain_triggered": false,
+    "briefing_preview": ""
+  },
+  {
+    "timestamp": "2026-04-30T12:29:04.508671",
+    "run_date": "2026-04-30",
+    "data_health": {
+      "status": "ISSUES_FOUND",
+      "row_count": 0,
+      "key_null_rates": {}
+    },
+    "features_proposed": 5,
+    "features_accepted": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0.5936
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0.1665
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0.0644
+      }
+    ],
+    "features_rejected": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0
+      },
+      {
+        "name": "quali_trend",
+        "correlation": 0
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0
+      },
+      {
+        "name": "points_acceleration",
+        "correlation": 0
+      }
+    ],
+    "model_mae": null,
+    "worst_circuits": [],
+    "retrain_triggered": false,
+    "briefing_preview": ""
+  }
+]

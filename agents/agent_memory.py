@@ -62,10 +62,12 @@ def save_agent_memory(state):
         "features_proposed": len(state.get("new_features_proposed", [])),
         "features_accepted": [
             {"name": f.get("name", str(f)), "correlation": round(f.get("correlation", 0), 3)}
+            if isinstance(f, dict) else {"name": str(f), "correlation": state.get("feature_test_results", {}).get(str(f), {}).get("correlation", 0)}
             for f in state.get("new_features_accepted", [])
         ],
         "features_rejected": [
             {"name": f.get("name", str(f)), "correlation": round(f.get("correlation", 0), 3)}
+            if isinstance(f, dict) else {"name": str(f), "correlation": state.get("feature_test_results", {}).get(str(f), {}).get("correlation", 0)}
             for f in state.get("new_features_rejected", state.get("new_features_proposed", []))
             if f not in state.get("new_features_accepted", [])
         ],

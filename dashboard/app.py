@@ -20,6 +20,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 import json
 import joblib
+from text_to_sql_page import render_text_to_sql_page
 
 st.set_page_config(
     page_title="F1 Big Data Analytics",
@@ -228,7 +229,7 @@ st.sidebar.markdown("---")
 page = st.sidebar.radio(
     "Navigate",
     ["🏠 Project Overview", "📈 Drivers & Constructors", "🌦️ Tire & Weather Impact",
-     "🤖 ML Models & Journey", "🏆 Race Predictions", "🧠 Agentic AI & Lessons"]
+     "🤖 ML Models & Journey", "🏆 Race Predictions", "🧠 Agentic AI & Lessons","🔍 Ask the Data"]
 )
 
 if len(df) > 0 and "season" in df.columns:
@@ -2605,6 +2606,10 @@ elif page == "🧠 Agentic AI & Lessons":
                 f"differences invisible in lap times alone."
                 f"</div></div>", unsafe_allow_html=True)
 
+
+elif page == "🔍 Ask the Data":
+    render_text_to_sql_page(df, data, selected_season)
+    
 # ── Footer ──
 st.sidebar.markdown("---")
 st.sidebar.markdown(

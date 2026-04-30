@@ -1,0 +1,30 @@
+F1 STRATEGY BRIEFING — Japanese Grand Prix (2026 Round 3)
+============================================================
+
+[DATA STATUS] ISSUES_FOUND
+  Total records: 3524
+  Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+  ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+
+[NEW FEATURES DISCOVERED]
+  + constructor_dominance: correlation with target = 0.5936
+  + home_advantage: correlation with target = 0.1665
+  + grid_volatility: correlation with target = 0.0644
+
+[MODEL PERFORMANCE]
+
+[LATEST RACE RESULTS — Japanese Grand Prix]
+  P 1 | Grid  1 | Andrea Kimi Antonelli
+  P 2 | Grid  3 | Oscar Piastri
+  P 3 | Grid  4 | Charles Leclerc
+  P 4 | Grid  2 | George Russell
+  P 5 | Grid  5 | Lando Norris
+  P 6 | Grid  6 | Lewis Hamilton
+  P 7 | Grid  7 | Pierre Gasly
+  P 8 | Grid 11 | Max Verstappen
+  P 9 | Grid 14 | Liam Lawson
+  P10 | Grid 12 | Esteban Ocon
+
+============================================================
+Generated: 2026-04-29T06:48:08.162674
+Retrain triggered: False

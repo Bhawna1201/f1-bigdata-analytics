@@ -1,0 +1,153 @@
+{
+  "data_health": {
+    "total_rows": 3524,
+    "seasons": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "columns": 35,
+    "high_null_columns": {
+      "q3_seconds": 51.6
+    },
+    "row_count_ok": true,
+    "latest_season": 2026,
+    "target_position_valid_pct": 100.0,
+    "target_podium_valid_pct": 100.0,
+    "target_winner_valid_pct": 100.0,
+    "grid_range": [
+      0,
+      22
+    ],
+    "status": "ISSUES_FOUND",
+    "issues_count": 1
+  },
+  "ingestion_status": "issues_found",
+  "data_issues": [
+    "HIGH NULL RATE: {'q3_seconds': 51.6}"
+  ],
+  "new_features_proposed": [
+    {
+      "name": "constructor_dominance",
+      "description": "Ratio of constructor points to field average",
+      "hypothesis": "Dominant constructors (ratio > 1.5) should predict podiums"
+    },
+    {
+      "name": "quali_trend",
+      "description": "Slope of qualifying gap over last 5 races (negative = improving)",
+      "hypothesis": "Drivers with improving qualifying trend should finish higher"
+    },
+    {
+      "name": "home_advantage",
+      "description": "Difference between overall form and circuit-specific form",
+      "hypothesis": "Positive value = driver performs better at this circuit than average"
+    },
+    {
+      "name": "grid_volatility",
+      "description": "Std dev of grid position over last 5 races",
+      "hypothesis": "More consistent qualifiers should finish higher"
+    },
+    {
+      "name": "points_acceleration",
+      "description": "Second derivative of cumulative points \u2014 acceleration of form",
+      "hypothesis": "Drivers gaining momentum faster should be more competitive"
+    }
+  ],
+  "new_features_accepted": [
+    "constructor_dominance",
+    "home_advantage",
+    "grid_volatility"
+  ],
+  "feature_test_results": {
+    "constructor_dominance": {
+      "correlation": 0.5936,
+      "accepted": "True"
+    },
+    "quali_trend": {
+      "correlation": 0.0442,
+      "accepted": "False"
+    },
+    "home_advantage": {
+      "correlation": 0.1665,
+      "accepted": "True"
+    },
+    "grid_volatility": {
+      "correlation": 0.0644,
+      "accepted": "True"
+    },
+    "points_acceleration": {
+      "correlation": 0.0191,
+      "accepted": "False"
+    }
+  },
+  "model_performance": {
+    "status": "ERROR",
+    "error": "feature_names mismatch: ['season', 'round', 'grid', 'best_quali_seconds', 'q1_seconds', 'q2_seconds', 'q3_seconds', 'num_pit_stops', 'rolling_avg_position_5', 'rolling_avg_points_5', 'rolling_dnf_rate_5', 'rolling_positions_gained_5', 'constructor_rolling_points', 'rolling_consistency', 'quali_gap_to_pole', 'quali_gap_pct', 'pit_strategy_aggressive', 'pit_stops_vs_field', 'circuit_avg_position', 'circuit_races_count', 'season_cumulative_points', 'avg_track_temp', 'max_track_temp', 'min_track_temp', 'avg_air_temp', 'max_humidity', 'avg_humidity', 'is_hot_race', 'is_cold_race', 'temp_variation', 'had_rain', 'driver_elo', 'elo_vs_field', 'win_streak', 'podium_streak', 'points_streak', 'ewm_position_5', 'ewm_points_5', 'driver_circuit_wins', 'driver_circuit_podiums', 'constructor_rain_interaction', 'constructor_temp_interaction', 'grid_elo_interaction', 'circuit_dnf_rate', 'circuit_chaos_index', 'quali_vs_teammate', 'season_progress', 'is_season_start', 'is_season_end', 'points_gap_to_leader', 'championship_position', 'prev_season_position', 'prev_season_points', 'prev_season_wins', 'is_prev_champion', 'is_prev_top3', 'is_prev_top5', 'avg_tire_deg_slope', 'max_tire_deg_slope', 'min_tire_deg_slope', 'stint_count_tire', 'driver_avg_deg_5', 'avg_lap_time', 'lap_consistency', 'best_lap_time', 'laps_completed_actual', 'max_tyre_life', 'pace_vs_field', 'best_lap_pct', 'num_stints', 'driver_consistency_5', 'driver_id_enc', 'driver_code_enc', 'driver_name_enc', 'constructor_id_enc', 'constructor_name_enc', 'circuit_id_enc', 'circuit_name_enc', 'race_name_enc'] ['season', 'round', 'grid', 'best_quali_seconds', 'q1_seconds', 'q2_seconds', 'q3_seconds', 'num_pit_stops', 'rolling_avg_position_5', 'rolling_avg_points_5', 'rolling_dnf_rate_5', 'rolling_positions_gained_5', 'constructor_rolling_points', 'rolling_consistency', 'quali_gap_to_pole', 'quali_gap_pct', 'pit_strategy_aggressive', 'pit_stops_vs_field', 'circuit_avg_position', 'circuit_races_count', 'season_cumulative_points', 'driver_id_enc', 'driver_code_enc', 'driver_name_enc', 'constructor_id_enc', 'constructor_name_enc', 'circuit_id_enc', 'circuit_name_enc', 'race_name_enc']\nexpected had_rain, pace_vs_field, elo_vs_field, temp_variation, driver_elo, constructor_temp_interaction, is_cold_race, best_lap_time, stint_count_tire, is_prev_top5, num_stints, ewm_points_5, quali_vs_teammate, prev_season_wins, prev_season_points, circuit_chaos_index, is_prev_champion, driver_circuit_wins, min_track_temp, championship_position, min_tire_deg_slope, podium_streak, avg_track_temp, win_streak, grid_elo_interaction, max_tire_deg_slope, avg_lap_time, is_prev_top3, max_tyre_life, ewm_position_5, avg_humidity, circuit_dnf_rate, avg_tire_deg_slope, best_lap_pct, lap_consistency, driver_consistency_5, is_season_start, constructor_rain_interaction, prev_season_position, season_progress, points_gap_to_leader, avg_air_temp, is_season_end, max_track_temp, driver_avg_deg_5, max_humidity, is_hot_race, laps_completed_actual, driver_circuit_podiums, points_streak in input data"
+  },
+  "model_recommendations": [],
+  "retrain_triggered": false,
+  "race_briefing": "F1 STRATEGY BRIEFING \u2014 Japanese Grand Prix (2026 Round 3)\n============================================================\n\n[DATA STATUS] ISSUES_FOUND\n  Total records: 3524\n  Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]\n  \u26a0 HIGH NULL RATE: {'q3_seconds': 51.6}\n\n[NEW FEATURES DISCOVERED]\n  + constructor_dominance: correlation with target = 0.5936\n  + home_advantage: correlation with target = 0.1665\n  + grid_volatility: correlation with target = 0.0644\n\n[MODEL PERFORMANCE]\n\n[LATEST RACE RESULTS \u2014 Japanese Grand Prix]\n  P 1 | Grid  1 | Andrea Kimi Antonelli\n  P 2 | Grid  3 | Oscar Piastri\n  P 3 | Grid  4 | Charles Leclerc\n  P 4 | Grid  2 | George Russell\n  P 5 | Grid  5 | Lando Norris\n  P 6 | Grid  6 | Lewis Hamilton\n  P 7 | Grid  7 | Pierre Gasly\n  P 8 | Grid 11 | Max Verstappen\n  P 9 | Grid 14 | Liam Lawson\n  P10 | Grid 12 | Esteban Ocon\n\n============================================================\nGenerated: 2026-04-30T12:21:08.822074\nRetrain triggered: False\n\n============================================================\n[AI-POWERED ANALYSIS \u2014 Gemini 2.0 Flash]\n============================================================\n\n**Pre-Race Strategy Briefing**\n\n**1. Data Health**\nOur data analysis has found some potential issues (1 out of 3524 records) that we'll need to keep an eye on during the race, but overall, our data set appears to be intact.\n\n**2. New Intelligence**\nThe Feature Agent has highlighted three key areas of interest: constructor dominance, home advantage, and grid volatility. Constructor dominance shows a strong correlation (0.5936) suggesting that our own car's performance could be influenced by how well the other constructors are handling their cars. This matters because it suggests we may have an opportunity to gain an advantage if we can adapt our strategy to counter the strong performances of other constructors. Home advantage (0.1665) indicates that the local team has a small but noticeable performance boost, which could impact our decision-making around strategy calls.\n\n**3. Model Confidence**\nGiven the lack of performance metrics and specific worst circuits or hardest drivers, our model is currently unable to provide a comprehensive evaluation of where it's strongest or where it may be vulnerable. We'll need to monitor performance closely to gain a clearer understanding.\n\n**4. Recommended Actions**\n- Monitor grid positions closely to anticipate potential constructor dominance play from other teams.\n- Watch for any opportunities to exploit home advantage through targeted strategy calls.\n- Be prepared to adjust our overall approach if we see unusual grid volatility at the start, potentially indicating that some teams will be making bold moves to get ahead.",
+  "predictions": {
+    "latest_results": [
+      {
+        "driver_name": "Andrea Kimi Antonelli",
+        "target_position": 1,
+        "grid": 1
+      },
+      {
+        "driver_name": "Oscar Piastri",
+        "target_position": 2,
+        "grid": 3
+      },
+      {
+        "driver_name": "Charles Leclerc",
+        "target_position": 3,
+        "grid": 4
+      },
+      {
+        "driver_name": "George Russell",
+        "target_position": 4,
+        "grid": 2
+      },
+      {
+        "driver_name": "Lando Norris",
+        "target_position": 5,
+        "grid": 5
+      },
+      {
+        "driver_name": "Lewis Hamilton",
+        "target_position": 6,
+        "grid": 6
+      },
+      {
+        "driver_name": "Pierre Gasly",
+        "target_position": 7,
+        "grid": 7
+      },
+      {
+        "driver_name": "Max Verstappen",
+        "target_position": 8,
+        "grid": 11
+      },
+      {
+        "driver_name": "Liam Lawson",
+        "target_position": 9,
+        "grid": 14
+      },
+      {
+        "driver_name": "Esteban Ocon",
+        "target_position": 10,
+        "grid": 12
+      }
+    ]
+  },
+  "phase": "starting",
+  "errors": [],
+  "timestamp": "2026-04-30T12:21:08.401366"
+}

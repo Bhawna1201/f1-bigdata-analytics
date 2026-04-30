@@ -21,3 +21,4 @@ docker exec f1_airflow_web rm -f /opt/airflow/airflow-webserver.pid
 docker restart f1_airflow_web
 
 AIzaSyDhBnOrKCTCacZ4l5XAku4PTBlWKif0BmQ
+

@@ -32,6 +32,7 @@ from sklearn.metrics import mean_absolute_error, f1_score
 # LangGraph imports
 from langgraph.graph import StateGraph, END
 from langchain_core.messages import HumanMessage, SystemMessage
+from agent_memory import save_agent_memory, load_memory, get_memory_context
 
 logger = logging.getLogger("agentic_pipeline")
 
@@ -92,6 +93,7 @@ def data_agent(state: AgentState) -> AgentState:
     try:
         # Check Gold features exist and are fresh
         gold_path = GOLD_DIR / "race_prediction_features.parquet"
+        
         if not gold_path.exists():
             issues.append("CRITICAL: Gold features file missing — pipeline needs rerun")
             state["data_health"] = {"status": "FAILED"}
@@ -183,7 +185,8 @@ def feature_agent(state: AgentState) -> AgentState:
     test_results = {}
 
     try:
-        df = pd.read_parquet(GOLD_DIR / "race_prediction_features.parquet")
+        
+        df = pd.read_parquet(GOLD_DIR / "race_prediction_features_complete.parquet")
 
         # ── Proposal 1: Constructor dominance index ──
         # Ratio of constructor points to field average
@@ -593,7 +596,8 @@ def insight_agent(state: AgentState) -> AgentState:
         # ── Generate LLM-enhanced briefing ──
         try:
             llm_briefing = get_llm_briefing(state)
-            briefing = briefing + "\n\n" + "=" * 60 + "\n[AI-POWERED ANALYSIS — Gemini 2.0 Flash]\n" + "=" * 60 + "\n\n" + llm_briefing
+            briefing = briefing + "\n\n" + "=" * 60 + "\n[AI-POWERED ANALYSIS — Groq LLaMA 3.1]\n" + "=" * 60 + "\n\n" + llm_briefing
+            
             logger.info("  ✅ LLM briefing generated successfully")
         except Exception as llm_err:
             logger.warning(f"  ⚠️ LLM briefing skipped: {llm_err}")
@@ -707,7 +711,12 @@ def main():
         "errors": [],
         "timestamp": datetime.now().isoformat(),
     }
+    
 
+    # Load memory from past runs
+    past_runs = load_memory()
+    initial_state["memory_context"] = get_memory_context(past_runs)
+    logger.info(f"📚 Loaded {len(past_runs)} past agent runs from memory")
     # Run the pipeline
     final_state = pipeline.invoke(initial_state)
 
@@ -723,7 +732,9 @@ def main():
     logger.info(f"Errors:          {len(final_state['errors'])}")
     logger.info("=" * 60)
     logger.info("🏁 Agentic pipeline complete")
-
+    
+    # Save this run to agent memory
+    save_agent_memory(final_state)
     # Save full state
     state_path = AGENTS_LOG / f"pipeline_state_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     with open(state_path, "w") as f:
