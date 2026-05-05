@@ -32,7 +32,11 @@ from sklearn.metrics import mean_absolute_error, f1_score
 # LangGraph imports
 from langgraph.graph import StateGraph, END
 from langchain_core.messages import HumanMessage, SystemMessage
-from agent_memory import save_agent_memory, load_memory, get_memory_context
+#from agent_memory import save_agent_memory, load_memory, get_memory_context
+try:
+    from agents.agent_memory import save_agent_memory, load_memory, get_memory_context
+except ImportError:
+    from agent_memory import save_agent_memory, load_memory, get_memory_context
 
 logger = logging.getLogger("agentic_pipeline")
 
@@ -501,7 +505,11 @@ def model_agent(state: AgentState) -> AgentState:
 # ═══════════════════════════════════════════════════════════
 # Agent 4: Insight Agent — Strategy Briefing Generator
 # ═══════════════════════════════════════════════════════════
-from llm_insight_agent import get_llm_briefing
+#from llm_insight_agent import get_llm_briefing
+try:
+    from agents.llm_insight_agent import get_llm_briefing
+except ImportError:
+    from llm_insight_agent import get_llm_briefing
 
 def insight_agent(state: AgentState) -> AgentState:
     """

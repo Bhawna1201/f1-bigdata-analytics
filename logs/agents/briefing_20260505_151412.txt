@@ -1,0 +1,48 @@
+F1 STRATEGY BRIEFING — Miami Grand Prix (2026 Round 4)
+============================================================
+
+[DATA STATUS] ISSUES_FOUND
+  Total records: 3546
+  Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+  ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+
+[NEW FEATURES DISCOVERED]
+  + constructor_dominance: correlation with target = 0.5924
+  + home_advantage: correlation with target = 0.1673
+  + grid_volatility: correlation with target = 0.0656
+
+[MODEL PERFORMANCE]
+
+[LATEST RACE RESULTS — Miami Grand Prix]
+  P 1 | Grid  1 | Andrea Kimi Antonelli
+  P 2 | Grid  4 | Lando Norris
+  P 3 | Grid  7 | Oscar Piastri
+  P 4 | Grid  5 | George Russell
+  P 5 | Grid  2 | Max Verstappen
+  P 6 | Grid  6 | Lewis Hamilton
+  P 7 | Grid  8 | Franco Colapinto
+  P 8 | Grid  3 | Charles Leclerc
+  P 9 | Grid 13 | Carlos Sainz
+  P10 | Grid 15 | Alexander Albon
+
+============================================================
+Generated: 2026-05-05T15:14:11.147591
+Retrain triggered: False
+
+============================================================
+[AI-POWERED ANALYSIS — Groq LLaMA 3.1]
+============================================================
+
+**Pre-Race Strategy Briefing**
+
+**DATA HEALTH**: Our pre-race analysis identified one minor issue in the data set, but its impact on overall performance is expected to be minimal.
+
+**NEW INTELLIGENCE**: The Feature Discovery Agent revealed that constructor dominance (0.5924 correlation) remains a strong indicator of success in this race. Notably, teams from the constructor's native region have historically shown an advantage (0.1673 correlation), indicating potential for local knowledge and setup advantages to play a significant role. Meanwhile, grid positions have been relatively stable, reducing volatility (0.0656 correlation).
+
+**MODEL CONFIDENCE**: Our predictive model is unable to provide position-specific accuracy metrics, but we are confident in its ability to identify trends. It is advised to focus on circuit-specific strengths and driver performances when making strategic calls.
+
+**RECOMMENDED ACTIONS**:
+
+1. **Constructor matchups**: Focus on the strengths of each constructor on the grid, factoring in their dominance at this circuit and any home advantage. This will be crucial in determining strategic pit stops and pit crew performance.
+2. **Optimize pit window**: Use our analysis to identify any potential for an undercut or overcut strategy based on constructor dominance and any possible home advantages, considering the reduced grid volatility.
+3. **Circuit performance trends**: Monitor the on-circuit performance of key drivers, as the model's confidence is high in identifying driver-specific strengths and weaknesses, especially at the harder circuits.

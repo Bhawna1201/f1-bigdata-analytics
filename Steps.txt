@@ -22,3 +22,20 @@ docker restart f1_airflow_web
 
 AIzaSyDhBnOrKCTCacZ4l5XAku4PTBlWKif0BmQ
 
+cd ~/Documents/3rd_sem/f1_bigdata
+source venv/bin/activate
+
+streamlit run dashboard/app.py
+
+*********
+check data in Bronze layer 
+python -c "
+import pandas as pd
+df = pd.read_parquet('data/bronze/ergast/race_results_2026.parquet')
+print(df[['season','round','race_name']].drop_duplicates().sort_values('round'))
+"
+python ingestion/silver_transform.py
+python ingestion/gold_features.py
+python ml/integrate_idle_data.py
+python ml/model_comparison.py
+python agents/agentic_pipeline.py

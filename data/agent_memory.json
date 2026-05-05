@@ -198,5 +198,105 @@
     "worst_circuits": [],
     "retrain_triggered": false,
     "briefing_preview": ""
+  },
+  {
+    "timestamp": "2026-05-05T14:57:59.198853",
+    "run_date": "2026-05-05",
+    "data_health": {
+      "status": "ISSUES_FOUND",
+      "row_count": 0,
+      "key_null_rates": {}
+    },
+    "features_proposed": 5,
+    "features_accepted": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0.5936
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0.1665
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0.0644
+      }
+    ],
+    "features_rejected": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0
+      },
+      {
+        "name": "quali_trend",
+        "correlation": 0
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0
+      },
+      {
+        "name": "points_acceleration",
+        "correlation": 0
+      }
+    ],
+    "model_mae": null,
+    "worst_circuits": [],
+    "retrain_triggered": false,
+    "briefing_preview": ""
+  },
+  {
+    "timestamp": "2026-05-05T15:14:12.288017",
+    "run_date": "2026-05-05",
+    "data_health": {
+      "status": "ISSUES_FOUND",
+      "row_count": 0,
+      "key_null_rates": {}
+    },
+    "features_proposed": 5,
+    "features_accepted": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0.5924
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0.1673
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0.0656
+      }
+    ],
+    "features_rejected": [
+      {
+        "name": "constructor_dominance",
+        "correlation": 0
+      },
+      {
+        "name": "quali_trend",
+        "correlation": 0
+      },
+      {
+        "name": "home_advantage",
+        "correlation": 0
+      },
+      {
+        "name": "grid_volatility",
+        "correlation": 0
+      },
+      {
+        "name": "points_acceleration",
+        "correlation": 0
+      }
+    ],
+    "model_mae": null,
+    "worst_circuits": [],
+    "retrain_triggered": false,
+    "briefing_preview": ""
   }
 ]

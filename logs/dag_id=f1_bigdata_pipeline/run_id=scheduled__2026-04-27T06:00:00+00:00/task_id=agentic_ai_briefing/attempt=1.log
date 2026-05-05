@@ -1,0 +1,116 @@
+[2026-05-05T19:07:50.406+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.agentic_ai_briefing scheduled__2026-04-27T06:00:00+00:00 [queued]>
+[2026-05-05T19:07:50.416+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.agentic_ai_briefing scheduled__2026-04-27T06:00:00+00:00 [queued]>
+[2026-05-05T19:07:50.416+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-05-05T19:07:50.429+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): agentic_ai_briefing> on 2026-04-27 06:00:00+00:00
+[2026-05-05T19:07:50.466+0000] {standard_task_runner.py:60} INFO - Started process 18398 to run task
+[2026-05-05T19:07:50.489+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'agentic_ai_briefing', 'scheduled__2026-04-27T06:00:00+00:00', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmpgh63ca76']
+[2026-05-05T19:07:50.495+0000] {standard_task_runner.py:88} INFO - Job 71: Subtask agentic_ai_briefing
+[2026-05-05T19:07:50.645+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.agentic_ai_briefing scheduled__2026-04-27T06:00:00+00:00 [running]> on host 6879df3dac39
+[2026-05-05T19:07:50.922+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='agentic_ai_briefing' AIRFLOW_CTX_EXECUTION_DATE='2026-04-27T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-04-27T06:00:00+00:00'
+[2026-05-05T19:07:50.927+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-05T19:07:50.932+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/airflow &&\n        python -c "\nimport sys\nsys.path.insert(0, \'/opt/airflow\')\nfrom agents.agentic_pipeline import build_agent_graph, AgentState\nfrom datetime import datetime\n\npipeline = build_agent_graph()\nstate = {\n    \'data_health\': {}, \'ingestion_status\': \'\', \'data_issues\': [],\n    \'new_features_proposed\': [], \'new_features_accepted\': [],\n    \'feature_test_results\': {}, \'model_performance\': {},\n    \'model_recommendations\': [], \'retrain_triggered\': False,\n    \'race_briefing\': \'\', \'predictions\': {},\n    \'phase\': \'airflow_scheduled\', \'errors\': [],\n    \'timestamp\': datetime.now().isoformat(),\n}\nfinal = pipeline.invoke(state)\nprint(f\'Agentic AI complete\')\nprint(final.get(\'race_briefing\', \'No briefing\'))\n"\n    ']
+[2026-05-05T19:07:50.963+0000] {subprocess.py:86} INFO - Output:
+[2026-05-05T19:07:53.451+0000] {subprocess.py:93} INFO -   ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+[2026-05-05T19:07:53.817+0000] {subprocess.py:93} INFO -   Model Agent error: feature_names mismatch: ['season', 'round', 'grid', 'best_quali_seconds', 'q1_seconds', 'q2_seconds', 'q3_seconds', 'num_pit_stops', 'rolling_avg_position_5', 'rolling_avg_points_5', 'rolling_dnf_rate_5', 'rolling_positions_gained_5', 'constructor_rolling_points', 'rolling_consistency', 'quali_gap_to_pole', 'quali_gap_pct', 'pit_strategy_aggressive', 'pit_stops_vs_field', 'circuit_avg_position', 'circuit_races_count', 'season_cumulative_points', 'avg_track_temp', 'max_track_temp', 'min_track_temp', 'avg_air_temp', 'max_humidity', 'avg_humidity', 'is_hot_race', 'is_cold_race', 'temp_variation', 'had_rain', 'driver_elo', 'elo_vs_field', 'win_streak', 'podium_streak', 'points_streak', 'ewm_position_5', 'ewm_points_5', 'driver_circuit_wins', 'driver_circuit_podiums', 'constructor_rain_interaction', 'constructor_temp_interaction', 'grid_elo_interaction', 'circuit_dnf_rate', 'circuit_chaos_index', 'quali_vs_teammate', 'season_progress', 'is_season_start', 'is_season_end', 'points_gap_to_leader', 'championship_position', 'prev_season_position', 'prev_season_points', 'prev_season_wins', 'is_prev_champion', 'is_prev_top3', 'is_prev_top5', 'avg_tire_deg_slope', 'max_tire_deg_slope', 'min_tire_deg_slope', 'stint_count_tire', 'driver_avg_deg_5', 'avg_lap_time', 'lap_consistency', 'best_lap_time', 'laps_completed_actual', 'max_tyre_life', 'pace_vs_field', 'best_lap_pct', 'num_stints', 'driver_consistency_5', 'driver_id_enc', 'driver_code_enc', 'driver_name_enc', 'constructor_id_enc', 'constructor_name_enc', 'circuit_id_enc', 'circuit_name_enc', 'race_name_enc'] ['season', 'round', 'grid', 'best_quali_seconds', 'q1_seconds', 'q2_seconds', 'q3_seconds', 'num_pit_stops', 'rolling_avg_position_5', 'rolling_avg_points_5', 'rolling_dnf_rate_5', 'rolling_positions_gained_5', 'constructor_rolling_points', 'rolling_consistency', 'quali_gap_to_pole', 'quali_gap_pct', 'pit_strategy_aggressive', 'pit_stops_vs_field', 'circuit_avg_position', 'circuit_races_count', 'season_cumulative_points', 'driver_id_enc', 'driver_code_enc', 'driver_name_enc', 'constructor_id_enc', 'constructor_name_enc', 'circuit_id_enc', 'circuit_name_enc', 'race_name_enc']
+[2026-05-05T19:07:53.818+0000] {subprocess.py:93} INFO - expected lap_consistency, points_gap_to_leader, had_rain, max_track_temp, avg_air_temp, constructor_rain_interaction, points_streak, is_prev_top3, avg_humidity, is_prev_champion, pace_vs_field, is_prev_top5, temp_variation, driver_circuit_podiums, num_stints, ewm_points_5, win_streak, is_season_start, min_tire_deg_slope, constructor_temp_interaction, best_lap_pct, driver_elo, ewm_position_5, driver_consistency_5, avg_tire_deg_slope, best_lap_time, max_tyre_life, prev_season_position, stint_count_tire, avg_lap_time, circuit_dnf_rate, championship_position, driver_circuit_wins, is_hot_race, is_season_end, podium_streak, max_tire_deg_slope, max_humidity, prev_season_wins, avg_track_temp, elo_vs_field, circuit_chaos_index, prev_season_points, driver_avg_deg_5, min_track_temp, quali_vs_teammate, grid_elo_interaction, is_cold_race, laps_completed_actual, season_progress in input data
+[2026-05-05T19:07:53.829+0000] {subprocess.py:93} INFO - groq not installed - pip install groq
+[2026-05-05T19:07:53.830+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.830+0000] {subprocess.py:93} INFO - F1 STRATEGY BRIEFING — Miami Grand Prix (2026 Round 4)
+[2026-05-05T19:07:53.830+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.830+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.830+0000] {subprocess.py:93} INFO - [DATA STATUS] ISSUES_FOUND
+[2026-05-05T19:07:53.831+0000] {subprocess.py:93} INFO -   Total records: 3546
+[2026-05-05T19:07:53.831+0000] {subprocess.py:93} INFO -   Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+[2026-05-05T19:07:53.831+0000] {subprocess.py:93} INFO -   ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+[2026-05-05T19:07:53.832+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.832+0000] {subprocess.py:93} INFO - [NEW FEATURES DISCOVERED]
+[2026-05-05T19:07:53.832+0000] {subprocess.py:93} INFO -   + constructor_dominance: correlation with target = 0.5936
+[2026-05-05T19:07:53.832+0000] {subprocess.py:93} INFO -   + home_advantage: correlation with target = 0.1665
+[2026-05-05T19:07:53.832+0000] {subprocess.py:93} INFO -   + grid_volatility: correlation with target = 0.0644
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO - [MODEL PERFORMANCE]
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO - [LATEST RACE RESULTS — Miami Grand Prix]
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO -   P 1 | Grid  1 | Andrea Kimi Antonelli
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO -   P 2 | Grid  4 | Lando Norris
+[2026-05-05T19:07:53.833+0000] {subprocess.py:93} INFO -   P 3 | Grid  7 | Oscar Piastri
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P 4 | Grid  5 | George Russell
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P 5 | Grid  2 | Max Verstappen
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P 6 | Grid  6 | Lewis Hamilton
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P 7 | Grid  8 | Franco Colapinto
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P 8 | Grid  3 | Charles Leclerc
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P 9 | Grid 13 | Carlos Sainz
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO -   P10 | Grid 15 | Alexander Albon
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.834+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.835+0000] {subprocess.py:93} INFO - Generated: 2026-05-05T19:07:53.828362
+[2026-05-05T19:07:53.835+0000] {subprocess.py:93} INFO - Retrain triggered: False
+[2026-05-05T19:07:53.835+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.835+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.835+0000] {subprocess.py:93} INFO - [AI-POWERED ANALYSIS — Groq LLaMA 3.1]
+[2026-05-05T19:07:53.835+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO - DATA HEALTH: ISSUES_FOUND
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO - Records: 3546
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO - NEW FEATURES DISCOVERED: 3 accepted
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO -   - constructor_dominance: correlation = 0.5936
+[2026-05-05T19:07:53.836+0000] {subprocess.py:93} INFO -   - home_advantage: correlation = 0.1665
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO -   - grid_volatility: correlation = 0.0644
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - MODEL PERFORMANCE: MAE = N/A
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - Retrain triggered: False
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - Note: Set GROQ_API_KEY for AI-powered briefings.
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - Agentic AI complete
+[2026-05-05T19:07:53.837+0000] {subprocess.py:93} INFO - F1 STRATEGY BRIEFING — Miami Grand Prix (2026 Round 4)
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO - [DATA STATUS] ISSUES_FOUND
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO -   Total records: 3546
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO -   Seasons covered: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO -   ⚠ HIGH NULL RATE: {'q3_seconds': 51.6}
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.838+0000] {subprocess.py:93} INFO - [NEW FEATURES DISCOVERED]
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO -   + constructor_dominance: correlation with target = 0.5936
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO -   + home_advantage: correlation with target = 0.1665
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO -   + grid_volatility: correlation with target = 0.0644
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO - [MODEL PERFORMANCE]
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO - [LATEST RACE RESULTS — Miami Grand Prix]
+[2026-05-05T19:07:53.839+0000] {subprocess.py:93} INFO -   P 1 | Grid  1 | Andrea Kimi Antonelli
+[2026-05-05T19:07:53.840+0000] {subprocess.py:93} INFO -   P 2 | Grid  4 | Lando Norris
+[2026-05-05T19:07:53.840+0000] {subprocess.py:93} INFO -   P 3 | Grid  7 | Oscar Piastri
+[2026-05-05T19:07:53.840+0000] {subprocess.py:93} INFO -   P 4 | Grid  5 | George Russell
+[2026-05-05T19:07:53.840+0000] {subprocess.py:93} INFO -   P 5 | Grid  2 | Max Verstappen
+[2026-05-05T19:07:53.841+0000] {subprocess.py:93} INFO -   P 6 | Grid  6 | Lewis Hamilton
+[2026-05-05T19:07:53.841+0000] {subprocess.py:93} INFO -   P 7 | Grid  8 | Franco Colapinto
+[2026-05-05T19:07:53.841+0000] {subprocess.py:93} INFO -   P 8 | Grid  3 | Charles Leclerc
+[2026-05-05T19:07:53.841+0000] {subprocess.py:93} INFO -   P 9 | Grid 13 | Carlos Sainz
+[2026-05-05T19:07:53.841+0000] {subprocess.py:93} INFO -   P10 | Grid 15 | Alexander Albon
+[2026-05-05T19:07:53.841+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - Generated: 2026-05-05T19:07:53.828362
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - Retrain triggered: False
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - [AI-POWERED ANALYSIS — Groq LLaMA 3.1]
+[2026-05-05T19:07:53.842+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO - DATA HEALTH: ISSUES_FOUND
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO - Records: 3546
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO - NEW FEATURES DISCOVERED: 3 accepted
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO -   - constructor_dominance: correlation = 0.5936
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO -   - home_advantage: correlation = 0.1665
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO -   - grid_volatility: correlation = 0.0644
+[2026-05-05T19:07:53.843+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.844+0000] {subprocess.py:93} INFO - MODEL PERFORMANCE: MAE = N/A
+[2026-05-05T19:07:53.844+0000] {subprocess.py:93} INFO - Retrain triggered: False
+[2026-05-05T19:07:53.844+0000] {subprocess.py:93} INFO - 
+[2026-05-05T19:07:53.844+0000] {subprocess.py:93} INFO - Note: Set GROQ_API_KEY for AI-powered briefings.
+[2026-05-05T19:07:54.071+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-05T19:07:54.153+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=f1_bigdata_pipeline, task_id=agentic_ai_briefing, execution_date=20260427T060000, start_date=20260505T190750, end_date=20260505T190754
+[2026-05-05T19:07:54.221+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-05T19:07:54.304+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,152 @@
+[2026-05-05T18:45:50.065+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.spark_silver_transform scheduled__2026-04-27T06:00:00+00:00 [queued]>
+[2026-05-05T18:45:50.068+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.spark_silver_transform scheduled__2026-04-27T06:00:00+00:00 [queued]>
+[2026-05-05T18:45:50.068+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 5
+[2026-05-05T18:45:50.072+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_silver_transform> on 2026-04-27 06:00:00+00:00
+[2026-05-05T18:45:50.074+0000] {standard_task_runner.py:60} INFO - Started process 17947 to run task
+[2026-05-05T18:45:50.075+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'spark_silver_transform', 'scheduled__2026-04-27T06:00:00+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmpjikumdnz']
+[2026-05-05T18:45:50.077+0000] {standard_task_runner.py:88} INFO - Job 67: Subtask spark_silver_transform
+[2026-05-05T18:45:50.096+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.spark_silver_transform scheduled__2026-04-27T06:00:00+00:00 [running]> on host 6879df3dac39
+[2026-05-05T18:45:50.128+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='spark_silver_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-04-27T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-04-27T06:00:00+00:00'
+[2026-05-05T18:45:50.128+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-05T18:45:50.129+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        docker exec f1_spark_master /opt/spark/bin/spark-submit             --master spark://spark-master:7077             --driver-memory 1g             --executor-memory 1g             /opt/spark-jobs/spark_silver.py\n    ']
+[2026-05-05T18:45:50.133+0000] {subprocess.py:86} INFO - Output:
+[2026-05-05T18:45:51.818+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SparkContext: Running Spark version 3.5.1
+[2026-05-05T18:45:51.822+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SparkContext: OS info Linux, 6.6.32-linuxkit, aarch64
+[2026-05-05T18:45:51.822+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SparkContext: Java version 11.0.22
+[2026-05-05T18:45:51.850+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-05-05T18:45:51.915+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO ResourceUtils: ==============================================================
+[2026-05-05T18:45:51.916+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-05-05T18:45:51.916+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO ResourceUtils: ==============================================================
+[2026-05-05T18:45:51.916+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SparkContext: Submitted application: F1_BigData_Silver
+[2026-05-05T18:45:51.929+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-05-05T18:45:51.935+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO ResourceProfile: Limiting resource is cpu
+[2026-05-05T18:45:51.936+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-05-05T18:45:51.975+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SecurityManager: Changing view acls to: spark
+[2026-05-05T18:45:51.976+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SecurityManager: Changing modify acls to: spark
+[2026-05-05T18:45:51.977+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SecurityManager: Changing view acls groups to:
+[2026-05-05T18:45:51.977+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SecurityManager: Changing modify acls groups to:
+[2026-05-05T18:45:51.977+0000] {subprocess.py:93} INFO - 26/05/05 18:45:51 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-05-05T18:45:52.204+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO Utils: Successfully started service 'sparkDriver' on port 35385.
+[2026-05-05T18:45:52.277+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO SparkEnv: Registering MapOutputTracker
+[2026-05-05T18:45:52.309+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO SparkEnv: Registering BlockManagerMaster
+[2026-05-05T18:45:52.317+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-05-05T18:45:52.317+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-05-05T18:45:52.327+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-05-05T18:45:52.357+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-b417a5a6-f315-470f-90ca-3447173ca64a
+[2026-05-05T18:45:52.368+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-05-05T18:45:52.393+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-05-05T18:45:52.471+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-05-05T18:45:52.573+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-05-05T18:45:52.686+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-05-05T18:45:52.718+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO TransportClientFactory: Successfully created connection to spark-master/172.20.0.3:7077 after 18 ms (0 ms spent in bootstraps)
+[2026-05-05T18:45:52.893+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260505184552-0006
+[2026-05-05T18:45:52.903+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41527.
+[2026-05-05T18:45:52.904+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO NettyBlockTransferService: Server created on e8718f0f08fc:41527
+[2026-05-05T18:45:52.905+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-05-05T18:45:52.910+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, e8718f0f08fc, 41527, None)
+[2026-05-05T18:45:52.911+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260505184552-0006/0 on worker-20260502140747-172.20.0.4-34417 (172.20.0.4:34417) with 2 core(s)
+[2026-05-05T18:45:52.913+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO StandaloneSchedulerBackend: Granted executor ID app-20260505184552-0006/0 on hostPort 172.20.0.4:34417 with 2 core(s), 1024.0 MiB RAM
+[2026-05-05T18:45:52.913+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260505184552-0006/1 on worker-20260502140747-172.20.0.5-35617 (172.20.0.5:35617) with 2 core(s)
+[2026-05-05T18:45:52.913+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManagerMasterEndpoint: Registering block manager e8718f0f08fc:41527 with 434.4 MiB RAM, BlockManagerId(driver, e8718f0f08fc, 41527, None)
+[2026-05-05T18:45:52.913+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO StandaloneSchedulerBackend: Granted executor ID app-20260505184552-0006/1 on hostPort 172.20.0.5:35617 with 2 core(s), 1024.0 MiB RAM
+[2026-05-05T18:45:52.915+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, e8718f0f08fc, 41527, None)
+[2026-05-05T18:45:52.916+0000] {subprocess.py:93} INFO - 26/05/05 18:45:52 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, e8718f0f08fc, 41527, None)
+[2026-05-05T18:45:53.150+0000] {subprocess.py:93} INFO - 26/05/05 18:45:53 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-05-05T18:45:53.393+0000] {subprocess.py:93} INFO - 26/05/05 18:45:53 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260505184552-0006/1 is now RUNNING
+[2026-05-05T18:45:53.408+0000] {subprocess.py:93} INFO - 26/05/05 18:45:53 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260505184552-0006/0 is now RUNNING
+[2026-05-05T18:45:53.446+0000] {subprocess.py:93} INFO - F1 Big Data — Spark Silver Transform
+[2026-05-05T18:45:53.447+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:45:53.447+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:45:53.447+0000] {subprocess.py:93} INFO - SILVER: Race Results
+[2026-05-05T18:45:53.448+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:46:03.396+0000] {subprocess.py:93} INFO - Read 3546 raw rows
+[2026-05-05T18:46:04.360+0000] {subprocess.py:93} INFO - 26/05/05 18:46:04 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-05-05T18:46:11.802+0000] {subprocess.py:93} INFO - ✓ Silver race_results: 3546 rows
+[2026-05-05T18:46:11.806+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:46:11.806+0000] {subprocess.py:93} INFO - SILVER: Qualifying
+[2026-05-05T18:46:11.807+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:46:16.645+0000] {subprocess.py:93} INFO - ✓ Silver qualifying: 3540 rows
+[2026-05-05T18:46:16.651+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:46:16.651+0000] {subprocess.py:93} INFO - SILVER: Pit Stops
+[2026-05-05T18:46:16.654+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:46:20.590+0000] {subprocess.py:93} INFO - ✓ Silver pit_stops: 5696 rows
+[2026-05-05T18:46:20.594+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:46:20.594+0000] {subprocess.py:93} INFO - SILVER: Laps
+[2026-05-05T18:46:20.594+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-05T18:49:47.531+0000] {subprocess.py:93} INFO - 26/05/05 18:49:47 WARN DAGScheduler: Broadcasting large task binary with size 6.9 MiB
+[2026-05-05T18:51:36.117+0000] {subprocess.py:93} INFO - 26/05/05 18:51:35 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+[2026-05-05T18:51:47.894+0000] {subprocess.py:93} INFO - 26/05/05 18:51:47 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+[2026-05-05T18:52:32.630+0000] {subprocess.py:93} INFO - 26/05/05 18:52:32 WARN DAGScheduler: Broadcasting large task binary with size 1641.7 KiB
+[2026-05-05T18:52:53.465+0000] {subprocess.py:93} INFO - 26/05/05 18:52:53 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: Master removed our application: KILLED
+[2026-05-05T18:52:55.357+0000] {subprocess.py:93} INFO - 26/05/05 18:52:55 ERROR Utils: Uncaught exception in thread stop-spark-context
+[2026-05-05T18:52:55.377+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-05T18:52:55.378+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:56)
+[2026-05-05T18:52:55.379+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:310)
+[2026-05-05T18:52:55.379+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-05T18:52:55.379+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.client.StandaloneAppClient.stop(StandaloneAppClient.scala:288)
+[2026-05-05T18:52:55.379+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.org$apache$spark$scheduler$cluster$StandaloneSchedulerBackend$$stop(StandaloneSchedulerBackend.scala:275)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.stop(StandaloneSchedulerBackend.scala:142)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.SchedulerBackend.stop(SchedulerBackend.scala:33)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.SchedulerBackend.stop$(SchedulerBackend.scala:33)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stop(CoarseGrainedSchedulerBackend.scala:54)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.TaskSchedulerImpl.$anonfun$stop$2(TaskSchedulerImpl.scala:992)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.TaskSchedulerImpl.stop(TaskSchedulerImpl.scala:992)
+[2026-05-05T18:52:55.386+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$4(DAGScheduler.scala:2976)
+[2026-05-05T18:52:55.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-05-05T18:52:55.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2976)
+[2026-05-05T18:52:55.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2263)
+[2026-05-05T18:52:55.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+[2026-05-05T18:52:55.387+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2263)
+[2026-05-05T18:52:55.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.stop(SparkContext.scala:2216)
+[2026-05-05T18:52:55.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext$$anon$3.run(SparkContext.scala:2203)
+[2026-05-05T18:52:55.388+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: Could not find AppClient.
+[2026-05-05T18:52:55.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:178)
+[2026-05-05T18:52:55.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Dispatcher.postLocalMessage(Dispatcher.scala:144)
+[2026-05-05T18:52:55.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.askAbortable(NettyRpcEnv.scala:242)
+[2026-05-05T18:52:55.389+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.askAbortable(NettyRpcEnv.scala:554)
+[2026-05-05T18:52:55.389+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.ask(NettyRpcEnv.scala:558)
+[2026-05-05T18:52:55.389+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.ask(RpcEndpointRef.scala:72)
+[2026-05-05T18:52:55.389+0000] {subprocess.py:93} INFO - 	... 17 more
+[2026-05-05T18:52:57.484+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-05-05T18:52:57.508+0000] {subprocess.py:93} INFO -   File "/opt/spark-jobs/spark_silver.py", line 223, in <module>
+[2026-05-05T18:52:57.510+0000] {subprocess.py:93} INFO -     main()
+[2026-05-05T18:52:57.511+0000] {subprocess.py:93} INFO -   File "/opt/spark-jobs/spark_silver.py", line 215, in main
+[2026-05-05T18:52:57.511+0000] {subprocess.py:93} INFO -     transform_laps(spark, bronze_path, silver_path)
+[2026-05-05T18:52:57.511+0000] {subprocess.py:93} INFO -   File "/opt/spark-jobs/spark_silver.py", line 170, in transform_laps
+[2026-05-05T18:52:57.511+0000] {subprocess.py:93} INFO -     print(f"✓ Silver laps: {df.count()} rows")
+[2026-05-05T18:52:57.511+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/dataframe.py", line 1238, in count
+[2026-05-05T18:52:57.518+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2026-05-05T18:52:57.519+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2026-05-05T18:52:57.519+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2026-05-05T18:52:57.530+0000] {subprocess.py:93} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o58995.count.
+[2026-05-05T18:52:57.531+0000] {subprocess.py:93} INFO - : org.apache.spark.SparkException: Job aborted due to stage failure: Master removed our application: KILLED
+[2026-05-05T18:52:57.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+[2026-05-05T18:52:57.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+[2026-05-05T18:52:57.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at scala.Option.foreach(Option.scala:407)
+[2026-05-05T18:52:57.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+[2026-05-05T18:52:57.533+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+[2026-05-05T18:52:57.533+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+[2026-05-05T18:52:57.533+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+[2026-05-05T18:52:57.533+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+[2026-05-05T18:52:57.535+0000] {subprocess.py:93} INFO - 
+[2026-05-05T18:52:59.315+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-05-05T18:53:00.361+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-05-05T18:53:00.553+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=f1_bigdata_pipeline, task_id=spark_silver_transform, execution_date=20260427T060000, start_date=20260505T184550, end_date=20260505T185300
+[2026-05-05T18:53:00.796+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 67 for task spark_silver_transform (Bash command failed. The command returned a non-zero exit code 1.; 17947)
+[2026-05-05T18:53:00.937+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-05-05T18:53:01.146+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

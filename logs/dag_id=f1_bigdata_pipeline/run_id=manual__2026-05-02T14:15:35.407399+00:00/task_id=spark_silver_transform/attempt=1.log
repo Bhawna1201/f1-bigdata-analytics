@@ -1,0 +1,88 @@
+[2026-05-02T14:16:01.136+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.spark_silver_transform manual__2026-05-02T14:15:35.407399+00:00 [queued]>
+[2026-05-02T14:16:01.140+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: f1_bigdata_pipeline.spark_silver_transform manual__2026-05-02T14:15:35.407399+00:00 [queued]>
+[2026-05-02T14:16:01.140+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-05-02T14:16:01.145+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_silver_transform> on 2026-05-02 14:15:35.407399+00:00
+[2026-05-02T14:16:01.148+0000] {standard_task_runner.py:60} INFO - Started process 257 to run task
+[2026-05-02T14:16:01.149+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'f1_bigdata_pipeline', 'spark_silver_transform', 'manual__2026-05-02T14:15:35.407399+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/f1_pipeline_dag.py', '--cfg-path', '/tmp/tmptc0ynix4']
+[2026-05-02T14:16:01.150+0000] {standard_task_runner.py:88} INFO - Job 51: Subtask spark_silver_transform
+[2026-05-02T14:16:01.172+0000] {task_command.py:423} INFO - Running <TaskInstance: f1_bigdata_pipeline.spark_silver_transform manual__2026-05-02T14:15:35.407399+00:00 [running]> on host 6879df3dac39
+[2026-05-02T14:16:01.206+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='f1_bigdata' AIRFLOW_CTX_DAG_ID='f1_bigdata_pipeline' AIRFLOW_CTX_TASK_ID='spark_silver_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-05-02T14:15:35.407399+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-02T14:15:35.407399+00:00'
+[2026-05-02T14:16:01.206+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-02T14:16:01.207+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        docker exec f1_spark_master /opt/spark/bin/spark-submit             --master spark://spark-master:7077             --driver-memory 1g             --executor-memory 1g             /opt/spark-jobs/spark_silver.py\n    ']
+[2026-05-02T14:16:01.211+0000] {subprocess.py:86} INFO - Output:
+[2026-05-02T14:16:04.096+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkContext: Running Spark version 3.5.1
+[2026-05-02T14:16:04.100+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkContext: OS info Linux, 6.6.32-linuxkit, aarch64
+[2026-05-02T14:16:04.101+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkContext: Java version 11.0.22
+[2026-05-02T14:16:04.155+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-05-02T14:16:04.229+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO ResourceUtils: ==============================================================
+[2026-05-02T14:16:04.231+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-05-02T14:16:04.232+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO ResourceUtils: ==============================================================
+[2026-05-02T14:16:04.233+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkContext: Submitted application: F1_BigData_Silver
+[2026-05-02T14:16:04.250+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-05-02T14:16:04.259+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO ResourceProfile: Limiting resource is cpu
+[2026-05-02T14:16:04.260+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-05-02T14:16:04.308+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SecurityManager: Changing view acls to: spark
+[2026-05-02T14:16:04.309+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SecurityManager: Changing modify acls to: spark
+[2026-05-02T14:16:04.309+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SecurityManager: Changing view acls groups to:
+[2026-05-02T14:16:04.310+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SecurityManager: Changing modify acls groups to:
+[2026-05-02T14:16:04.310+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2026-05-02T14:16:04.638+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO Utils: Successfully started service 'sparkDriver' on port 45857.
+[2026-05-02T14:16:04.688+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkEnv: Registering MapOutputTracker
+[2026-05-02T14:16:04.725+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkEnv: Registering BlockManagerMaster
+[2026-05-02T14:16:04.745+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-05-02T14:16:04.747+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-05-02T14:16:04.753+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-05-02T14:16:04.781+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-850eab28-d992-439d-a088-50a0b53e8d7d
+[2026-05-02T14:16:04.803+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-05-02T14:16:04.814+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-05-02T14:16:04.965+0000] {subprocess.py:93} INFO - 26/05/02 14:16:04 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-05-02T14:16:05.057+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-05-02T14:16:05.160+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2026-05-02T14:16:05.225+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO TransportClientFactory: Successfully created connection to spark-master/172.20.0.3:7077 after 38 ms (0 ms spent in bootstraps)
+[2026-05-02T14:16:05.494+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260502141605-0000
+[2026-05-02T14:16:05.503+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33007.
+[2026-05-02T14:16:05.504+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO NettyBlockTransferService: Server created on e8718f0f08fc:33007
+[2026-05-02T14:16:05.507+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-05-02T14:16:05.516+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260502141605-0000/0 on worker-20260502140747-172.20.0.4-34417 (172.20.0.4:34417) with 2 core(s)
+[2026-05-02T14:16:05.517+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneSchedulerBackend: Granted executor ID app-20260502141605-0000/0 on hostPort 172.20.0.4:34417 with 2 core(s), 1024.0 MiB RAM
+[2026-05-02T14:16:05.520+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260502141605-0000/1 on worker-20260502140747-172.20.0.5-35617 (172.20.0.5:35617) with 2 core(s)
+[2026-05-02T14:16:05.523+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneSchedulerBackend: Granted executor ID app-20260502141605-0000/1 on hostPort 172.20.0.5:35617 with 2 core(s), 1024.0 MiB RAM
+[2026-05-02T14:16:05.525+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, e8718f0f08fc, 33007, None)
+[2026-05-02T14:16:05.534+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO BlockManagerMasterEndpoint: Registering block manager e8718f0f08fc:33007 with 434.4 MiB RAM, BlockManagerId(driver, e8718f0f08fc, 33007, None)
+[2026-05-02T14:16:05.536+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, e8718f0f08fc, 33007, None)
+[2026-05-02T14:16:05.537+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, e8718f0f08fc, 33007, None)
+[2026-05-02T14:16:05.718+0000] {subprocess.py:93} INFO - 26/05/02 14:16:05 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2026-05-02T14:16:06.182+0000] {subprocess.py:93} INFO - F1 Big Data — Spark Silver Transform
+[2026-05-02T14:16:06.191+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:06.198+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:06.201+0000] {subprocess.py:93} INFO - SILVER: Race Results
+[2026-05-02T14:16:06.203+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:23.515+0000] {subprocess.py:93} INFO - Read 3524 raw rows
+[2026-05-02T14:16:24.079+0000] {subprocess.py:93} INFO - 26/05/02 14:16:24 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-05-02T14:16:29.404+0000] {subprocess.py:93} INFO - ✓ Silver race_results: 3524 rows
+[2026-05-02T14:16:29.412+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:29.413+0000] {subprocess.py:93} INFO - SILVER: Qualifying
+[2026-05-02T14:16:29.419+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:35.108+0000] {subprocess.py:93} INFO - ✓ Silver qualifying: 3518 rows
+[2026-05-02T14:16:35.117+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:35.118+0000] {subprocess.py:93} INFO - SILVER: Pit Stops
+[2026-05-02T14:16:35.127+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:40.475+0000] {subprocess.py:93} INFO - ✓ Silver pit_stops: 5674 rows
+[2026-05-02T14:16:40.480+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:16:40.480+0000] {subprocess.py:93} INFO - SILVER: Laps
+[2026-05-02T14:16:40.481+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:19:04.007+0000] {subprocess.py:93} INFO - 26/05/02 14:19:04 WARN DAGScheduler: Broadcasting large task binary with size 6.9 MiB
+[2026-05-02T14:19:38.508+0000] {subprocess.py:93} INFO - 26/05/02 14:19:38 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+[2026-05-02T14:19:43.992+0000] {subprocess.py:93} INFO - 26/05/02 14:19:43 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+[2026-05-02T14:19:51.041+0000] {subprocess.py:93} INFO - 26/05/02 14:19:51 WARN DAGScheduler: Broadcasting large task binary with size 1632.1 KiB
+[2026-05-02T14:20:00.771+0000] {subprocess.py:93} INFO - ✓ Silver laps: 181721 rows
+[2026-05-02T14:20:00.776+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:20:00.777+0000] {subprocess.py:93} INFO - SILVER: Race Master (Joined)
+[2026-05-02T14:20:00.777+0000] {subprocess.py:93} INFO - ============================================================
+[2026-05-02T14:20:02.951+0000] {subprocess.py:93} INFO - ✓ Silver race_master: 3524 rows, 32 columns
+[2026-05-02T14:20:02.954+0000] {subprocess.py:93} INFO - 
+[2026-05-02T14:20:02.955+0000] {subprocess.py:93} INFO - Spark Silver layer complete!
+[2026-05-02T14:20:04.478+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-02T14:20:04.621+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=f1_bigdata_pipeline, task_id=spark_silver_transform, execution_date=20260502T141535, start_date=20260502T141601, end_date=20260502T142004
+[2026-05-02T14:20:04.680+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-05-02T14:20:04.724+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

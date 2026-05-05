@@ -1,0 +1,34 @@
+{
+  "health": {
+    "total_rows": 3524,
+    "seasons": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "columns": 35,
+    "high_null_columns": {
+      "q3_seconds": 51.6
+    },
+    "row_count_ok": true,
+    "latest_season": 2026,
+    "target_position_valid_pct": 100.0,
+    "target_podium_valid_pct": 100.0,
+    "target_winner_valid_pct": 100.0,
+    "grid_range": [
+      0,
+      22
+    ],
+    "status": "ISSUES_FOUND",
+    "issues_count": 1
+  },
+  "issues": [
+    "HIGH NULL RATE: {'q3_seconds': 51.6}"
+  ]
+}

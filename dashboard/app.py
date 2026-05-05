@@ -28,7 +28,28 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] .stSelectbox > div > div {
+        background-color: #2A2A2A !important;
+        color: white !important;
+        border: 1px solid #C41E1E;
+        border-radius: 8px;
+    }
+    [data-testid="stSidebar"] .stSelectbox > div > div > div {
+        color: white !important;
+    }
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] {
+        background-color: #2A2A2A !important;
+    }
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] span {
+        color: white !important;
+    }
+    [data-testid="stSidebar"] .stSelectbox svg {
+        fill: white !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 # ── CSS (adapted from healthcare dashboard) ──
 st.markdown("""
 <style>
